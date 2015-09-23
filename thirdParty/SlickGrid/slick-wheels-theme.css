@@ -1,0 +1,154 @@
+/*
+IMPORTANT:
+In order to preserve the uniform grid appearance, all cell styles need to have padding, margin and border sizes.
+No built-in (selected, editable, highlight, flashing, invalid, loading, :focus) or user-specified CSS
+classes should alter those!
+*/
+
+.slick-header-columns {
+  background-color: #fff;
+  background-image: none;
+  border-bottom: 0px;
+}
+
+.slick-header-column.ui-state-default {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background-color: #fff;
+  background-image: none;
+  font-family: 'ProximaNovaRgBold', Arial, sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  color: #696868;
+  height:37px;
+  line-height: 39px;
+  margin: 0;
+  padding: 0px 10px 0px 6px;
+  border-right: 0px;
+  border-left: 0px;
+  border-top: 0px;
+  border-bottom: 3px solid #dbdada;
+  float: left;
+}
+
+.slick-headerrow-column.ui-state-default {
+  padding: 0px 10px 0px 6px;
+}
+
+.slick-header-columns .slick-header-column:hover,
+.slick-header-columns .slick-header-column-active {
+  background: #fff;
+}
+
+.slick-header-column-sorted {
+  font-style: italic;
+}
+
+.slick-headerrow {
+  background: #fff;
+}
+
+.slick-headerrow-column {
+  background: #fff;
+  border-bottom: 0;
+  height: 100%;
+}
+
+.slick-row.ui-state-active {
+  background: #fff;
+}
+
+.slick-row {
+  position: absolute;
+  background: white;
+  border: 0px;
+  line-height: 20px;
+}
+
+.slick-row.selected {
+  z-index: 10;
+  background: #f0f0f0;
+}
+
+.slick-row .slick-cell {
+  font-family: 'ProximaNovaRgRegular', Arial, sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  color: #696868;
+  padding: 0px 10px 0px 6px;
+  border-bottom: 1px solid #dbdada;
+  border-right: 0px;
+  line-height: 39px;
+}
+
+.slick-group {
+  border-bottom: 2px solid #dbdada;
+}
+
+.slick-group-toggle {
+  width: 9px;
+  height: 9px;
+  margin-right: 5px;
+}
+
+.slick-group-toggle.expanded {
+  background: url(images/collapse.gif) no-repeat center center;
+}
+
+.slick-group-toggle.collapsed {
+  background: url(images/expand.gif) no-repeat center center;
+}
+
+.slick-group-totals {
+  color: gray;
+  background: white;
+}
+
+.slick-cell.selected {
+  background-color: #fff;
+}
+
+.slick-cell.active {
+  border-right: 0px;
+  border-left: 0px;
+  border-top: 0px;
+  border-bottom: 1px solid #dbdada;
+}
+
+.slick-sortable-placeholder {
+  background: #f0f0f0 !important;
+}
+
+.slick-row.odd {
+  background: #fff;
+}
+
+.slick-row.ui-state-active {
+  background: #f0f0f0;
+}
+
+.slick-row.loading {
+  opacity: 0.5;
+  filter: alpha(opacity = 50);
+}
+
+.slick-cell.invalid {
+  border-color: red;
+  -moz-animation-duration: 0.2s;
+  -webkit-animation-duration: 0.2s;
+  -moz-animation-name: slickgrid-invalid-hilite;
+  -webkit-animation-name: slickgrid-invalid-hilite;  
+}
+
+@-moz-keyframes slickgrid-invalid-hilite {
+  from { box-shadow: 0 0 6px red; }
+  to { box-shadow: none; }
+}
+
+@-webkit-keyframes slickgrid-invalid-hilite {
+  from { box-shadow: 0 0 6px red; }
+  to { box-shadow: none; }
+}

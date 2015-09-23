@@ -1,0 +1,68 @@
+<header id='header'>
+    <div class="top-header">
+        <div class="container-fluid">
+            <div class="row">
+                <ul class="add-nav pull-right hidden-print">
+                    <li><a href="#">Help</a></li>
+                    <li ng-show="isAuthenticated"> <a href="#/client" >FLEET CODE</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li ng-show="isAuthenticated">
+                       <a href="#" ng-click="logOut()" >LOGOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class='logo'>
+                    <a href='#'>
+                        <span data-picture data-alt="Wheels">
+                            <span data-src="contents/img/logo.png" ></span>
+                            <span data-src="contents/img/logo-mobile.png" data-media="(max-width:767px)" ></span>
+                            <span data-src="contents/img/logo-mobile-2x.png" data-media="(max-width:767px) and (-webkit-min-device-pixel-ratio:1.5), (max-width:767px) and (min-resolution:144dpi)" ></span>
+                            <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+                            <noscript><img src="contents/img/logo.png" width="156" height="35" alt="Wheels" ></noscript>
+                        </span>
+                    </a>
+                </div>
+                <nav ng-show="isAuthenticated" class="navbar navbar-default hidden-print" role="navigation">
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span>Reference Topics</span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li class="dropdown" ng-repeat="item in items" ng-class="{ active: item.active }">
+                                            <a href="#{{item.href}}"><span>{{item.label}}</span></a>
+                                        </li>
+                                        <li class="visible-xs">
+                                            <div ng-include="'components/directives/whDirectives/navbar/whSideNavContent.html'"/>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div wh-global-search></div>
+                <div class="pull-right logo-box">
+                    <a href="#"><img src='contents/img/text-fleetview.png' alt='fleetview' /></a>
+                </div>
+                <div ng-show="isAuthenticated" class="pull-right notification-box">
+                    <a href="#"><i class="fa fa-user fa-lg"></i><span class="number">2</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

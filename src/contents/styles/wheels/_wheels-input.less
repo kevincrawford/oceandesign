@@ -1,0 +1,290 @@
+/*************************************************
+******* INPUT CONTROLS ***************************
+**************************************************/
+/** multi-select **/
+.wh-select-expand button {
+  width: 100%;
+  text-align: left;
+  .caret-plus {
+    display: block;
+  }
+  .caret-minus {
+    display: none;
+  }
+  &.collapsed {
+    .caret-plus {
+      display: none;
+    }
+    .caret-minus {
+      display: block;
+    }
+  }
+}
+
+.wh-select-dropdown, .wh-select-expand {
+  .dropdown button {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  ul {
+    padding: 10px;
+    input, label {
+      cursor: pointer;
+    }
+    label {
+      display: inline; /** so this wraps better with the checkboxes **/
+    }
+  }
+  .wh-multiselect-dropdown-done {
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+.wh-select-dropdown {
+  .dropdown button {
+    span {
+      padding-right: 4px;
+    }
+    .caret.pull-right {
+      margin-top: 9px;
+    }
+  }
+}
+
+/** support dropdowns in the control-label section **/
+.form-horizontal .control-label .dropdown-menu {
+  left: auto;
+  right: 0;
+}
+
+/** very temporary.... **/
+.wh-select-no-dropdown {
+  margin: 0;
+  padding: 0;
+}
+
+.wh-select-no-dropdown, .wh-single-select.wh-select-dropdown ul.dropdown-menu, .wh-select-expand ul {
+  li {
+    list-style: none;
+    padding-right: 2em;
+    padding-left: 2px;
+    margin-left: -2px;
+    &, label {
+      cursor: pointer;
+    }
+  }
+  li:hover {
+    background: grey;
+    border-radius: 2px;
+  }
+  .checked {
+    float: right;
+    margin-right: -1.5em;
+  }
+  label {
+    display: inline;
+  }
+}
+.bootstrap-switch {
+  width: 100%;
+}
+
+.left-inner-addon {
+  position: relative;
+}
+
+.left-inner-addon input {
+  padding-left: 30px;
+}
+
+.left-inner-addon span {
+  position: absolute;
+  padding: 10px 12px;
+  pointer-events: none;
+}
+
+.right-inner-addon {
+  position: relative;
+}
+
+.right-inner-addon input {
+  padding-right: 30px;
+}
+
+.right-inner-addon span {
+  position: absolute;
+  right: 0px;
+  padding: 10px 12px;
+  pointer-events: none;
+}
+
+.wh-toggle {
+  width: 100%;
+  position: relative;
+  border: 1px solid;
+  cursor: pointer;
+  display: inline-block;
+  text-align: left;
+  overflow: hidden;
+  line-height: 8px;
+  min-width: 100px;
+
+  display: inline-block;
+  cursor: pointer;
+  border-radius: @border-radius-base;
+  border: 1px solid;
+  border-color: @btn-default-border;
+  position: relative;
+  text-align: left;
+  overflow: hidden;
+  line-height: 8px;
+  .user-select(none);
+  vertical-align: middle;
+  min-width: 100px;
+
+  .form-control-hover(@color: @input-border-focus) {
+    @color-rgba: rgba(red(@color), green(@color), blue(@color), .6);
+    &:hover {
+      border-color: @color;
+      outline: 0;
+      .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px @{color-rgba}");
+    }
+  }
+
+  .form-control-hover();
+  .transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
+
+  &.disabled {
+    &:hover {
+      border-color: @btn-default-border;
+      //outline: 0;
+      .box-shadow(~"inset 0 0 0 rgba(0,0,0,0), 0 0 0 rgba(0,0,0,0)");
+    }
+  }
+
+  &.disabled {
+    .opacity(.5);
+    cursor: default !important;
+  }
+
+  .wh-toggle-left,
+  .wh-toggle-knob,
+  .wh-toggle-right,
+  .wh-toggle-text-left,
+  .wh-toggle-text-right {
+    cursor: default !important;
+  }
+
+  span {
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    height: 100%;
+    line-height: 20px;
+    padding: 4px;
+    text-align: center;
+    width: 33%;
+    white-space: nowrap;
+
+    box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+
+  .wh-toggle-fg span {
+    width: 50%;
+  }
+
+  div.wh-toggle-animate {
+    position: relative;
+    width: 152%; /** 150% leaves a bit of extra room on the end **/
+  }
+
+  div.wh-toggle-fg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .wh-toggle-on .wh-toggle-animate {
+    left: 0%;
+  }
+
+  .wh-toggle-off .wh-toggle-animate {
+    left: -50%
+  }
+
+  .wh-toggle-knob {
+    border-right: none;
+    border-left: none;
+    text-align: center;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    background: @btn-default-bg;
+  }
+
+  .wh-toggle-on .wh-toggle-text-left {
+    color: @btn-primary-color;
+  }
+  .wh-toggle-off .wh-toggle-text-left {
+    color: @gray-light;
+  }
+
+  .wh-toggle-on .wh-toggle-text-right {
+    color: @gray-light;
+  }
+  .wh-toggle-off .wh-toggle-text-right {
+    color: @btn-primary-color;
+  }
+
+  .wh-toggle-left {
+    background: @btn-primary-bg;
+  }
+
+  .wh-toggle-right {
+    background: @btn-primary-bg;
+  }
+
+  /*
+  Per Alexa, looks better without the transitions
+  .wh-toggle-animate {
+    transition: left 0.5s;
+    -o-transition: left 0.5s;
+    -moz-transition: left 0.5s;
+    -webkit-transition: left 0.5s;
+  }
+  */
+}
+
+.wh-refine {
+  .wh-refine-item {
+    position: relative;
+    margin-right: 100px;
+    .wh-refine-delete-field {
+      position: absolute;
+      top: 10px;
+      right: -90px;
+      cursor: pointer;
+    }
+  }
+}
+
+.wh-expand > button {
+  width: 100%;
+  text-align: left;
+}
+
+.wh-schedule .wh-single-select {
+  display: inline-block;
+}
+
+.wh-schedule input[type=number] {
+  width: 40px;
+}
+.ui-datepicker {
+  z-index: 1100 !important; /** need to be higher than bootstrap popup's 1060 **/
+}

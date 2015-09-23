@@ -1,0 +1,83 @@
+/*
+GRID
+----------------------------------------------------*/
+/** Fix bootstrap vs. slickgrid issues **/
+.slick-header-column {
+  &, *, *:before, *.after {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+  }
+  position: relative;
+  body &.slick-header-sortable .slick-column-name {
+    /** reserve space for the sort indicator **/
+    padding-left: 10px;
+  }
+  .slick-sort-indicator {
+    position: absolute;
+    top: 5px;
+    left: 0;
+  }
+}
+
+/** column alignment **/
+.wh-column-left {
+  text-align: left;
+}
+
+.wh-column-right {
+  text-align: right;
+}
+
+.wh-column-center {
+  text-align: center;
+}
+
+.wh-grid-container {
+  position: relative;
+  z-index: 0;
+  .wh-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 1.5em;
+    right: 0;
+  }
+  .wh-grid-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .slick-headerrow-columns {
+    z-index: 15;
+  }
+  .slick-headerrow-column, .slick-headerrow-columns, .slick-headerrow {
+    overflow: visible !important;
+  }
+  .wh-grid-filter {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+  }
+  .wh-grid-filter-applied:after {
+    content: "";
+    background: @wh-green;
+    height: 8px;
+    width: 8px;
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    border-radius: 4px;
+  }
+}
+.wh-grid-filter-buttons {
+  padding-top: 10px;
+}
+
+
+.wh-grid-container-compact {
+  .slick-header {
+    display: none;
+    height: 0; /** without this height, space is reserved for it **/
+  }
+}

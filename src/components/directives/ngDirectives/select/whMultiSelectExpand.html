@@ -1,0 +1,22 @@
+<div class="wh-select-expand wh-multi-select">
+    <div class="dropdown">
+        <button class="btn btn-default collapsed" type="button" data-toggle="collapse" data-target="#{{idPrefix}}_options" aria-expanded="true" aria-controls="{{idPrefix}}_options">
+            <span class="caret-plus glyphicon glyphicon-plus pull-right"></span>
+            <span class="caret-minus glyphicon glyphicon-minus pull-right"></span>
+            <span ng-if="selected.length == 0">&lt;NONE&gt;</span>
+            <span ng-if="selected.length == 1">{{ selected[0].ItemDesc }}</span>
+            <span ng-if="selected.length > 1 && selected.length < options.length">{{ selectedDescriptions }}</span>
+            <span ng-if="selected.length == options.length && options.length > 1">&lt;ALL&gt;</span>
+        </button>
+        <ul id="{{idPrefix}}_options" class="collapse">
+            <li ng-click="allSelected = !allSelected" ng-class="{ selected: allSelected }">
+                <label>Select All</label>
+                <span ng-if="allSelected" class="checked glyphicon glyphicon-ok"></span>
+            </li>
+            <li ng-repeat="option in allOptions | orderBy: item.ItemDesc" ng-click="option.selected = !option.selected" ng-class="{ selected: option.selected }">
+                <label>{{option.item.ItemDesc}}</label>
+                <span ng-if="option.selected" class="checked glyphicon glyphicon-ok"></span>
+            </li>
+        </ul>
+    </div>
+</div>

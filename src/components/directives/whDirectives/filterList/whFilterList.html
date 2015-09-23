@@ -1,0 +1,18 @@
+<div ng-if="items.length" wh-expand text="text" html="html">
+    <div ng-style="items.length >= 5 ? { 'overflow-y': 'auto', height: '100px' } : {}">
+        <table style="width: 100%">
+            <tbody>
+            <tr ng-repeat="item in items">
+                <td><a href ng-click="itemApply({item: item})">{{item.name}}</a></td>
+                <td><a href ng-click="itemSchedule({ item: item })">Manage Schedule</a></td>
+                <td ng-if="canDelete"><a href ng-click="itemDelete({item: item})">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div ng-if="!items.length">
+    No
+    <span ng-if="text">{{text}}</span>
+    <span ng-if="!text" ng-bind-html="html"></span>
+</div>

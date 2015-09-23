@@ -1,0 +1,7 @@
+<div class="input-group">
+    <input class="form-control" type="text" ng-model="value"/>
+    <span class="input-group-btn">
+        <button class="btn btn-active" ng-click="realValue = value; close = true"><span class="glyphicon glyphicon-search"></span></button>
+        <button class="btn btn-active" ng-if="value" ng-click="$parent.realValue = null; $parent.close = true"><span class="glyphicon glyphicon-remove"></span></button>
+    </span>
+</div>

@@ -1,0 +1,190 @@
+<script>
+
+$( document ).ready(function() {
+
+	$('.uxr-reorderable-list ul').sortable();
+	$('.uxr-reorderable-list ul').disableSelection();
+
+	$('.input-check').change(function(e) {
+	  if(window.console && console.log)
+          console.log($(this));
+          console.log($(this).parent());
+          console.log($(this).parent('li'));
+
+	  if(this.checked){
+	  	$(this).parent().parent().parent().parent().find('.option-order').removeClass('hidden');
+	  	$(this).parent().parent().parent().parent().find('.option-require').removeClass('hidden');
+	  } else {
+	  	$(this).parent().parent().parent().parent().find('.option-order').addClass('hidden');
+	  	$(this).parent().parent().parent().parent().find('.option-require').addClass('hidden');
+	  }
+	});
+});
+
+</script>
+
+<form class="uxr-reorderable-list">
+<ul class="list-group">
+	<li class="list-group-item form-inline clearfix">
+		<div class="form-group option-check">
+			<div class="checkbox">
+				<label><input class="input-check" type="checkbox"> Option description</label>
+			</div>
+		</div>
+		<div class="form-group option-order hidden">
+			<input type="number" class="form-control" placeholder="1">
+		</div>
+		<div class="form-group option-require hidden">
+			<select class="form-control">
+				<option>Must Include</option>
+				<option>Must Exclude</option>
+			</select>
+		</div>
+	</li>
+	<li class="list-group-item form-inline clearfix">
+		<div class="form-group option-check">
+			<div class="checkbox">
+				<label><input class="input-check" type="checkbox"> Option description</label>
+			</div>
+		</div>
+		<div class="form-group option-order hidden">
+			<input type="number" class="form-control" placeholder="1">
+		</div>
+		<div class="form-group option-require hidden">
+			<select class="form-control">
+				<option>Must Include</option>
+				<option>Must Exclude</option>
+			</select>
+		</div>
+	</li>
+	<li class="list-group-item form-inline clearfix">
+		<div class="form-group option-check">
+			<div class="checkbox">
+				<label><input class="input-check" type="checkbox"> Option description</label>
+			</div>
+		</div>
+		<div class="form-group option-order hidden">
+			<input type="number" class="form-control" placeholder="1">
+		</div>
+		<div class="form-group option-require hidden">
+			<select class="form-control">
+				<option>Must Include</option>
+				<option>Must Exclude</option>
+			</select>
+		</div>
+	</li>
+	<li class="list-group-item form-inline clearfix">
+		<div class="form-group option-check">
+			<div class="checkbox">
+				<label><input class="input-check" type="checkbox"> Option description</label>
+			</div>
+		</div>
+		<div class="form-group option-order hidden">
+			<input type="number" class="form-control" placeholder="1">
+		</div>
+		<div class="form-group option-require hidden">
+			<select class="form-control">
+				<option>Must Include</option>
+				<option>Must Exclude</option>
+			</select>
+		</div>
+	</li>
+	<li class="list-group-item form-inline clearfix">
+		<div class="form-group option-check">
+			<div class="checkbox">
+				<label><input class="input-check" type="checkbox"> Option description</label>
+			</div>
+		</div>
+		<div class="form-group option-order hidden">
+			<input type="number" class="form-control" placeholder="1">
+		</div>
+		<div class="form-group option-require hidden">
+			<select class="form-control">
+				<option>Must Include</option>
+				<option>Must Exclude</option>
+			</select>
+		</div>
+	</li>
+	<li class="list-group-item form-inline clearfix">
+		<div class="form-group option-check">
+			<div class="checkbox">
+				<label><input class="input-check" type="checkbox"> Option description</label>
+			</div>
+		</div>
+		<div class="form-group option-order hidden">
+			<input type="number" class="form-control" placeholder="1">
+		</div>
+		<div class="form-group option-require hidden">
+			<select class="form-control">
+				<option>Must Include</option>
+				<option>Must Exclude</option>
+			</select>
+		</div>
+	</li>
+	<li class="list-group-item form-inline clearfix">
+		<div class="form-group option-check">
+			<div class="checkbox">
+				<label><input class="input-check" type="checkbox"> Option description</label>
+			</div>
+		</div>
+		<div class="form-group option-order hidden">
+			<input type="number" class="form-control" placeholder="1">
+		</div>
+		<div class="form-group option-require hidden">
+			<select class="form-control">
+				<option>Must Include</option>
+				<option>Must Exclude</option>
+			</select>
+		</div>
+	</li>
+	<li class="list-group-item form-inline clearfix">
+		<div class="form-group option-check">
+			<div class="checkbox">
+				<label><input class="input-check" type="checkbox"> Option description</label>
+			</div>
+		</div>
+		<div class="form-group option-order hidden">
+			<input type="number" class="form-control" placeholder="1">
+		</div>
+		<div class="form-group option-require hidden">
+			<select class="form-control">
+				<option>Must Include</option>
+				<option>Must Exclude</option>
+			</select>
+		</div>
+	</li>
+	<li class="list-group-item form-inline clearfix">
+		<div class="form-group option-check">
+			<div class="checkbox">
+				<label><input class="input-check" type="checkbox"> Option description</label>
+			</div>
+		</div>
+		<div class="form-group option-order hidden">
+			<input type="number" class="form-control" placeholder="1">
+		</div>
+		<div class="form-group option-require hidden">
+			<select class="form-control">
+				<option>Must Include</option>
+				<option>Must Exclude</option>
+			</select>
+		</div>
+	</li>
+	<li class="list-group-item form-inline clearfix">
+		<div class="form-group option-check">
+			<div class="checkbox">
+				<label><input class="input-check" type="checkbox"> Option description</label>
+			</div>
+		</div>
+		<div class="form-group option-order hidden">
+			<input type="number" class="form-control" placeholder="1">
+		</div>
+		<div class="form-group option-require hidden">
+			<select class="form-control">
+				<option>Must Include</option>
+				<option>Must Exclude</option>
+			</select>
+		</div>
+	</li>
+</ul>
+</form>
+<p />

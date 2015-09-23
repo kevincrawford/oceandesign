@@ -1,0 +1,67 @@
+<div ng-controller="filterSaveController as c">
+    <div wh-tabs collapsible autoCollapse class="col-md-12">
+        <div wh-pane tab-title="Filters">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- filters -->
+                    <label>Timeframe</label>
+                    <div wh-select expand options="c.timeFrameOptions" selected="c.filters.timeFrame"></div>
+                    <div ng-if="c.filters.timeFrame.ItemCd == 4">
+                        <div class="form-group">
+                            <label class="col-md-2 col-xs-4" for="fromDP">From</label>
+                            <div class="col-md-4 col-xs-8">
+                                <div class="input-group">
+                                    <input type="text" wh-date-picker maxdate="0" mindate="-3Y" id="fromDP" class="form-control" ng-model="c.filters.timeFrameStart">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                </div>
+                            </div>
+                            <label class="col-md-2 col-xs-4" for="fromDP">To</label>
+                            <div class="col-md-4 col-xs-8">
+                                <div class="input-group">
+                                    <input type="text" wh-date-picker maxdate="0" mindate="-3Y" id="toDP" class="form-control" ng-model="c.filters.timeFrameEnd">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <label>Contact Role</label>
+                    <div wh-select multiple expand options="c.contactRoleOptions" selected="c.filters.contactRole"></div>
+                    <label>Vehicle Relationship</label>
+                    <div wh-select multiple expand options="c.vehicleRelationshipOptions" selected="c.filters.vehicleRelationship"></div>
+                    <label>Unit Type</label>
+                    <div wh-select multiple expand options="c.unitTypeOptions" selected="c.filters.unitType"></div>
+                    <label>Application Code</label>
+                    <div wh-select multiple expand options="c.applicationCodeOptions" selected="c.filters.applicationCode"></div>
+
+                    <br/>
+                    <div>
+                        <button class="btn btn-default" ng-click="c.applyFilters()">
+                            Apply
+                        </button>
+                        <button class="btn" ng-click="c.saveFilters()">
+                            Save as Report
+                        </button>
+                    </div>
+                    <br/>
+                    <div>
+                        <button class="btn" ng-click="c.clearFilters()">
+                            <span class="glyphicon glyphicon-remove"></span>
+                            Reset Filters
+                        </button>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div wh-filter-list items="c.savedFilters" can-delete="true" item-apply="c.applyFilter(item)" item-schedule="c.scheduleFilter(item)" item-delete="c.deleteFilter(item)" text="'Saved Reports'"></div>
+                    <div wh-filter-list items="c.standardFilters" can-delete="false" item-apply="c.applyFilter(item)" item-schedule="c.scheduleFilter(item)" text="'Standard Reports'"></div>
+                    <div wh-filter-list items="c.sharedFilters" can-delete="false" item-apply="c.applyFilter(item)" item-schedule="c.scheduleFilter(item)" text="'Shared Reports'"></div>
+                </div>
+            </div>
+        </div>
+        <div wh-pane tab-title="Tools">
+        </div>
+    </div>
+    <p>Applied filters & refinements</p>
+    <div>{{ c.appliedFiltersDescription }}</div>
+    <pre style="max-height: 300px; overflow: auto;">{{ c.appliedFilters | json }}</pre>
+</div>

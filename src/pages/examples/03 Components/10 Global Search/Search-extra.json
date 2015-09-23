@@ -1,0 +1,5 @@
+{
+  "whGlobalSearch.coffee": "components/directives/ngDirectives/globalSearch/whGlobalSearch.coffee",
+  "whGlobalSearch.html": "components/directives/ngDirectives/globalSearch/whGlobalSearch.html",
+  "globalSearchService.coffee": "components/directives/ngDirectives/globalSearch/globalSearchService.coffee"
+}

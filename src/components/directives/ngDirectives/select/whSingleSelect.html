@@ -1,0 +1,6 @@
+<ul class="wh-select-no-dropdown wh-single-select">
+    <li ng-repeat="option in allOptions | orderBy: item.ItemDesc" ng-click="$parent.selected = option.selected ? null : option.item" ng-class="{ selected: option.selected }">
+        <label>{{option.item.ItemDesc}}</label>
+        <span ng-if="option.selected" class="checked glyphicon glyphicon-ok"></span>
+    </li>
+</ul>

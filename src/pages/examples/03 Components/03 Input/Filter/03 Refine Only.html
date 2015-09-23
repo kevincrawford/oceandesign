@@ -1,0 +1,39 @@
+<div ng-controller="selectSampleController as c">
+    <div class="well">
+        <div class="row">
+            <div class="col-md-6">
+                <div wh-refine fields="[ { ItemCd: 'type', ItemDesc: 'Type' }, { ItemCd: 'state', ItemDesc: 'State' }, { ItemCd: 'singleType', ItemDesc: 'Single Type' }, { ItemCd: 'singleState', ItemDesc: 'Single State' } ]" filters="c.filters">
+                    <div wh-field="type">
+                        <div wh-select multiple options="$parent.c.typeOptions" selected="item.value"></div>
+                    </div>
+                    <div wh-field="state">
+                        <div wh-select multiple options="$parent.c.stateOptions" selected="item.value"></div>
+                    </div>
+                    <div wh-field="singleType">
+                        <div wh-select options="$parent.c.typeOptions" selected="item.value"></div>
+                    </div>
+                    <div wh-field="singleState">
+                        <div wh-select options="$parent.c.stateOptions" selected="item.value"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <p>Refinements selected to the left:</p>
+                <pre>{{ c.filters | json }}</pre>
+            </div>
+        </div>
+        <div class="row" style="padding-top:15px;">
+            <div class="col-xs-12">
+                <div class="pull-right">
+                    <button class="btn" ng-click="c.clearFilters()">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        Clear Refinements
+                    </button>
+                    <button class="btn" ng-click="c.applyFilters()">Apply Refinements</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>Applied refinements</p>
+    <pre>{{ c.appliedFilters | json }}</pre>
+</div>

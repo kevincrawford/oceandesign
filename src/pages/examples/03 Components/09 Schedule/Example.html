@@ -1,0 +1,51 @@
+<style>
+    .modal-footer {
+        text-align: left;
+    }
+    #scheduleReportModal h5 {
+        font-size: 14px;
+        color: rgb(103, 145, 70);
+        text-transform:uppercase;
+    }
+</style>
+
+
+<script>
+$(function() {
+    $("#DP").datepicker();
+  });
+</script>
+
+<div ng-controller="scheduleController as c">
+    <div class="modal fade" id="scheduleReportModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Schedule Report</h4>
+                </div>
+                <div class="modal-body">
+                    <h4>Delivery Schedules</h4>
+                    <div>filters here</div>
+                    <h5>Delivery Frequency</h5>
+                    <div wh-schedule ng-model="c.value" class="row wh-schedule"></div>
+                    <p>The data selected above:</p>
+                    <div>{{ c.value | json }}</div>
+                    <h5>Delivery Options</h5>
+                    <div>list</div>
+                    <h5>Format Options</h5>
+                    <div>list</div>
+                    <h5>Recipients</h5>
+                    <div>list</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Schedule</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#scheduleReportModal">
+        Schedule Report
+    </button>
+</div>

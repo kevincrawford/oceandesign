@@ -1,0 +1,13 @@
+<div>
+    <div class="row visible-xs">
+        <button class="btn wh-auto-tab-inline" ng-class="{'wh-auto-tab-inline-selected': selected}" ng-click="selectThis()">
+            <span ng-if="selected" style="top: 4px;" class="pull-right glyphicon glyphicon-chevron-down"></span>
+            <span ng-if="!selected" class="pull-right glyphicon glyphicon-chevron-up"></span>
+            <span class="title">{{tabTitle}}</span>
+            <span class="wh-auto-tab-inline-caret"></span>
+        </button>
+    </div>
+    <div ng-hide="!selected">
+        <div class="tab-pane" ng-transclude></div>
+    </div>
+</div>

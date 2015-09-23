@@ -1,0 +1,99 @@
+<style>
+#RightNavMenu {
+	display:none;
+}
+.example-header {
+	display:none;
+}
+.uxr-show-source {
+	display:none;
+}
+</style>
+
+
+<div class="wh-topic-dashboard clearfix">
+
+	<div class="wh-topic-view-controls">
+		<div class="btn-group">
+			<button type="button" class="btn btn-default dashboard active">Dashboard</button>
+			<button type="button" class="btn btn-default details">Details</button>
+		</div>
+	</div>
+
+	<div class="wh-topic-title">
+		<h2>Motor Vehicle Records</h2>
+	</div>
+
+	<div class="btn-toolbar wh-topic-tools" role="toolbar">
+		<div class="btn-group">
+			<button type="button" class="btn btn-default text-uppercase"><span class="fa fa-filter"></span>&nbsp;Filters&nbsp;<span class="caret"></span></button>
+			<button type="button" class="btn btn-default text-uppercase"><span class="fa fa-wrench"></span>&nbsp;Tools&nbsp;<span class="caret"></span></button>
+		</div>
+	</div>
+
+
+
+	<div class="wh-collapsable-panel"></div>
+
+
+	<div class="dataviz-wrap clearfix">
+
+		<ul class="nav nav-pills nav-stacked navigation">
+			<li class="active">
+				<a href="javascript:void(0);">TOTAL MVRs REQUESTED BY STATUS</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);">TOTAL DRIVERS WITH MVR COMPLETED</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);">TOP 5 MVR VIOLATION TYPES</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);">MVR POINTS BY CONTACT AGE</a>
+			</li>
+		</ul>
+
+
+		<div class="dataviz">
+			<div class="wh-donut-container">
+				<h4>DONUT</h4>
+				<h5>Requested</h5>
+				<p>Gathering requirements to complete request</p>
+			</div>
+			<div class="wh-donut-container">
+				<h4>DONUT</h4>
+				<h5>Sent</h5>
+				<p>Awaiting reply from juristiction</p>
+			</div>
+			<div class="wh-donut-container">
+				<h4>DONUT</h4>
+				<h5>Completed</h5>
+				<p>MVRs ready for review</p>
+			</div>
+			<div class="wh-donut-container wh-important">
+				<h4>DONUT</h4>
+				<h5>Rejected</h5>
+				<p>Wheels identified missing information</p>
+			</div>
+			<div class="wh-donut-container">
+				<h4>DONUT</h4>
+				<h5>Not Found</h5>
+				<p>Juristiction could not locate driver</p>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+
+<script>
+
+$( document ).ready(function() {
+
+});
+
+</script>
+
+
+

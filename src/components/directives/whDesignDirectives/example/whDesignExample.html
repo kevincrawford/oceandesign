@@ -1,0 +1,42 @@
+<div class="example">
+    <h2 class="example-header">{{title}}</h2>
+    <div ng-show="html" class="clearfix">
+        <div class="html-container"></div>
+    </div>
+    <hr />
+    <div class="uxr-show-source" ng-if="!showSource">
+        <button class="btn btn-primary" ng-click="showTheSource()">Show me the source!</button>
+    </div>
+
+    <div class="uxr-show-source" ng-if="showSource">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li ng-show="htmlFile" class="active"><a href="#{{id}}-html" role="tab" data-toggle="tab">HTML</a></li>
+            <li ng-show="cssFile"><a href="#{{id}}-css" role="tab" data-toggle="tab">CSS</a></li>
+            <li ng-show="coffeeFile"><a href="#{{id}}-coffee" role="tab" data-toggle="tab">CoffeeScript</a></li>
+            <li ng-show="jsFile"><a href="#{{id}}-js" role="tab" data-toggle="tab">JavaScript</a></li>
+            <li ng-repeat="ef in extraFiles"><a href="#{{id}}-{{ef.key}}" role="tab" data-toggle="tab">{{ef.title}}</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div ng-show="htmlFile" class="tab-pane active" id="{{id}}-html">
+                <!-- need $parent. here so that we set the html property on the directive's scope, not ng-if's scope -->
+                <div ui-ace="{ mode: 'html' }" ng-model="$parent.html"></div>
+            </div>
+            <div ng-show="cssFile" class="tab-pane" id="{{id}}-css">
+                <div ui-ace="{ mode: 'css', onLoad: makeReadonly }" ng-model="$parent.css"></div>
+            </div>
+            <div ng-show="coffeeFile" class="tab-pane" id="{{id}}-coffee">
+                <div ui-ace="{ mode: 'coffee', onLoad: makeReadonly }" ng-model="$parent.coffee"></div>
+            </div>
+            <div ng-show="jsFile" class="tab-pane" id="{{id}}-js">
+                <div ui-ace="{ mode: 'javascript', onLoad: makeReadonly }" ng-model="$parent.js"></div>
+            </div>
+            <div ng-repeat="ef in $parent.extraFiles" class="tab-pane" id="{{id}}-{{ef.key}}">
+                <div ui-ace="{ mode: ef.mode, onLoad: makeReadonly }" ng-model="ef.content"></div>
+            </div>
+        </div>
+    </div>
+    <hr />
+</div>

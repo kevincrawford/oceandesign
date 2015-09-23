@@ -1,0 +1,124 @@
+.wh-topic-dashboard {
+	position: relative;
+}
+
+
+.wh-topic-title {
+	padding-right: 220px;
+}
+
+.wh-topic-view-controls {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.wh-topic-view-controls button {
+  	height: 36px;
+	background-color: @wh-light-gray-1;
+	border-color: @wh-border;
+	border-radius: 4px;
+	text-transform: uppercase;
+	font-weight: bold;
+	padding: 3px 16px;
+}
+
+.wh-topic-view-controls button.active {
+	background-color: @brand-primary;
+	border-color: @brand-primary;
+	color: #fff;
+}
+
+.wh-topic-view-controls button.dashboard {
+	border-right: none;
+}
+
+.wh-topic-view-controls button.details {
+	border-left: none;
+}
+
+
+.wh-topic-dashboard .wh-topic-tools {
+	margin: @wh-main-padding 0 0 0;
+	border-top: 1px solid @wh-border;
+}
+
+.wh-topic-dashboard .wh-topic-tools .btn-group {
+	margin-left: 0;
+}
+
+.btn-group > .btn:hover,
+.btn-group-vertical > .btn,
+.btn-group > .btn:focus,
+.btn-group-vertical > .btn:focus,
+.btn-group > .btn:active,
+.btn-group-vertical > .btn:active,
+.btn-group > .btn.active,
+.btn-group-vertical > .btn.active {
+  z-index: 2;
+}
+
+
+.wh-topic-dashboard .wh-topic-tools .btn:hover,
+.wh-topic-dashboard .wh-topic-tools .btn,
+.wh-topic-dashboard .wh-topic-tools .btn:focus,
+.wh-topic-dashboard .wh-topic-tools .btn:active, {
+	background-color: #fff;
+	margin: 0 40px 0 0;
+	padding: 12px 0;
+	border: none;
+}
+
+.wh-topic-dashboard .wh-topic-tools .btn:hover {
+	color: @brand-primary;
+}
+
+
+
+
+.wh-topic-dashboard .dataviz-wrap {
+	position:relative;
+	margin-top:40px;
+}
+
+
+.wh-topic-dashboard .navigation {
+	position:absolute;
+	width: 200px;
+}
+
+.wh-topic-dashboard .dataviz {
+	float:right;
+	width: 100%;
+	padding-left: 220px;
+}
+
+.wh-topic-dashboard .navigation > li > a,
+.wh-topic-dashboard .navigation > li.active > a
+{
+	background-color: #fff;
+	border-left: 6px solid #fff;
+	color: @text-color;
+	border-radius: 0px;
+}
+
+.wh-topic-dashboard .navigation > li > a:hover
+{
+	border-left: 6px solid #CCC;
+	color: @brand-primary;
+}
+
+.wh-topic-dashboard .navigation > li.active > a:hover,
+.wh-topic-dashboard .navigation > li.active > a
+{
+	border-left: 6px solid @brand-primary;
+	color: @brand-primary;
+}
+
+.wh-donut-container {
+	float:left;
+	width:20%;
+	text-align:center;
+	min-width:200px;
+	min-height:200px;
+}

@@ -1,0 +1,223 @@
+
+<script>
+$(function(){
+
+	$('#modalSchedule').insertAfter('#overlayContent');
+
+	$('#modalSchedule a').click(function (e) {
+	  e.preventDefault()
+	  $(this).tab('show')
+	})
+
+});
+
+
+
+</script>
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalSchedule">
+  Scheduler
+</button>
+
+<!-- Modal -->
+<div class="modal fade schedule-modal" id="modalSchedule" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form>
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+					<h4 class="modal-title" id="myModalLabel">SCHEDULE REPORT</h4>
+				</div>
+				<div class="modal-body">
+					<div class="frame schedule-active">
+						<strong>Delivery Schedules</strong>
+						<p>No Delivery Schedules</p>
+						<ul class="schedule-list">
+							<li><a href="#">Weekly</a></li>
+							<li><a href="#">Mondays</a></li>
+							<li><a href="#">Start Date <time datetime="2014-11-18">11/18/2014</time></a></li>
+							<li><a href="#">Adams, Judy</a></li>
+						</ul>
+						<ul class="schedule-list">
+							<li><a href="#">Monthly</a></li>
+							<li><a href="#">3rd Friday of Every Month</a></li>
+							<li><a href="#">Start Date <time datetime="2014-11-13">11/13/2014</time></a></li>
+							<li><a href="#">Multiple Recipients</a></li>
+						</ul>
+					</div>
+					<div class="frame">
+						<strong>Delivery Frequency</strong>
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#recurring" aria-controls="recurring" role="tab" data-toggle="tab">Recurring</a></li>
+							<li role="presentation"><a href="#one-time" aria-controls="one-time" role="tab" data-toggle="tab">One Time</a></li>
+						</ul>
+						<div class="box">
+							<label for="time"><i class="fa fa-info-circle"></i> Time</label>
+							<select id="time">
+								<option>7:00 AM  CST</option>
+								<option>7:00 AM  CST</option>
+								<option>7:00 AM  CST</option>
+								<option>7:00 AM  CST</option>
+							</select>
+						</div>
+						<div class="tab-content">
+							<div role="tabpanel" class="tab-pane active" id="recurring">
+								<ul class="nav nav-tabs" role="tablist">
+									<li role="presentation" class="active"><a href="#daily" aria-controls="daily" role="tab" data-toggle="tab">Daily</a></li>
+									<li role="presentation"><a href="#weekly" aria-controls="weekly" role="tab" data-toggle="tab">Weekly</a></li>
+									<li role="presentation"><a href="#monthly" aria-controls="monthly" role="tab" data-toggle="tab">Monthly</a></li>
+									<li role="presentation"><a href="#yearly" aria-controls="yearly" role="tab" data-toggle="tab">Yearly</a></li>
+								</ul>
+								<div class="tab-content">
+									<div role="tabpanel" class="tab-pane active" id="daily">
+										<div class="row-holder">
+											<input type="radio" name="week" id="week1">
+											<span class="row-text">
+												Every <input type="text" placeholder="1"> Day(s)
+											</span>
+										</div>
+										<div class="row-holder">
+											<input type="radio" name="week" id="week2">
+											<label for="week2">Every Weekday</label>
+										</div>
+									</div>
+									<div role="tabpanel" class="tab-pane" id="weekly">
+										<div class="row-holder">
+											<input type="radio" name="week11" id="week11">
+											<span class="row-text">
+												Every <input type="text" placeholder="1"> Week(s)
+											</span>
+										</div>
+										<div class="row-holder checkbox-holder">
+											<div class="checkbox-block">
+												<input type="checkbox" checked id="sunday"><label for="sunday">Sunday</label>
+											</div>
+											<div class="checkbox-block">
+												<input type="checkbox" id="monday"><label for="monday">Monday</label>
+											</div>
+											<div class="checkbox-block">
+												<input type="checkbox" id="tuesday"><label for="tuesday">Tuesday</label>
+											</div>
+											<div class="checkbox-block">
+												<input type="checkbox" id="wednesday"><label for="wednesday">Wednesday</label>
+											</div>
+											<div class="checkbox-block">
+												<input type="checkbox" id="thursday"><label for="thursday">Thursday</label>
+											</div>
+											<div class="checkbox-block">
+												<input type="checkbox" id="friday"><label for="friday">Friday</label>
+											</div>
+											<div class="checkbox-block">
+												<input type="checkbox" id="saturday"><label for="saturday">Saturday</label>
+											</div>
+										</div>
+									</div>
+									<div role="tabpanel" class="tab-pane" id="monthly">
+										<div class="row-holder">
+											<input type="radio" name="week5" id="week21">
+											<span class="row-text">
+												Day <input type="text" placeholder="18"> of every <input type="text" placeholder="1"> month(s)
+											</span>
+										</div>
+										<div class="row-holder">
+											<input type="radio" name="week5" id="week22">
+											<span class="row-text">
+												<select class="date-day">
+													<option>First</option>
+													<option>Second</option>
+													<option>Third</option>
+												</select>
+												<select>
+													<option>Thursday</option>
+													<option>Wednesday</option>
+													<option>Tuesday</option>
+												</select>
+												of every <input type="text" placeholder="1"> month(s)
+											</span>
+										</div>
+									</div>
+									<div role="tabpanel" class="tab-pane" id="yearly">
+										<div class="row-holder">
+											<span class="row-text">Recur every  <input type="text" placeholder="1" id="day"> year(s)</span>
+										</div>
+										<div class="row-holder month-row">
+											<input type="radio" name="week20">
+											<span class="row-text">
+												<select class="date-day">
+													<option>December</option>
+													<option>November</option>
+													<option>October</option>
+												</select>
+												<input type="text" placeholder="18">
+											</span>
+										</div>
+										<div class="row-holder">
+											<input type="radio" name="week20">
+											<span class="row-text">
+												<select class="date-day">
+													<option>Third</option>
+													<option>Second</option>
+													<option>First</option>
+												</select>
+												<select class="date-day">
+													<option>Thursday</option>
+													<option>Wednesday</option>
+													<option>Tuesday</option>
+												</select>
+												<select>
+													<option>December</option>
+													<option>November</option>
+													<option>October</option>
+												</select>
+											</span>
+										</div>
+									</div>
+									<div class="box">
+										<label for="date2">Start Date</label>
+										<div class="datepicker from" data-rel="calendar-group-1">
+											<input type="text" id="date2" class="datepicker-input" placeholder="MM  |  DD  |  YY">
+											<label for="date2"><i class="fa fa-calendar-o"></i></label>
+										</div>
+									</div>
+									<div class="box">
+										<label for="date3">End Date <span>(optional)</span></label>
+										<div class="datepicker to" data-rel="calendar-group-1">
+											<input type="text" id="date3" class="datepicker-input" placeholder="MM  |  DD  |  YY">
+											<label for="date3"><i class="fa fa-calendar-o"></i></label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="one-time">
+								<div class="box">
+									<label for="date">Date</label>
+									<div class="datepicker">
+										<input type="text" id="date" class="datepicker-input" placeholder="MM  |  DD  |  YY">
+										<label for="date"><i class="fa fa-calendar-o"></i></label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="frame">
+						<strong>Delivery Options</strong>
+						<p><i class="fa fa-check"></i>Email</p>
+					</div>
+					<div class="frame">
+						<strong>Format Options</strong>
+						<p><i class="fa fa-check"></i>Excel - Data Details</p>
+					</div>
+					<div class="frame">
+						<strong>Recipients</strong>
+						<p><i class="fa fa-check"></i>Adams, Judy</p>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">SCHEDULE</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">CANCEL</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

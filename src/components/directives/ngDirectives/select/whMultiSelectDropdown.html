@@ -1,0 +1,24 @@
+<div class="wh-select-dropdown wh-multi-select">
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+            <b class="caret pull-right"></b>
+            <span ng-if="selected.length == 0">&lt;NONE&gt;</span>
+            <span ng-if="selected.length == 1">{{ selected[0].ItemDesc }}</span>
+            <span ng-if="selected.length > 1 && selected.length < options.length">{{ selectedDescriptions }}</span>
+            <span ng-if="selected.length == options.length && options.length > 1">&lt;ALL&gt;</span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li>
+                <input id="{{idPrefix}}_selectAll" type="checkbox" ng-model="allSelected"/>
+                <label for="{{idPrefix}}_selectAll">Select All</label>
+            </li>
+            <li ng-repeat="option in allOptions | orderBy: item.ItemDesc">
+                <input id="{{idPrefix}}_{{option.item.ItemCd}}" type="checkbox" ng-model="option.selected"/>
+                <label for="{{idPrefix}}_{{option.item.ItemCd}}">{{option.item.ItemDesc}}</label>
+            </li>
+            <li>
+                <button class="btn wh-multiselect-dropdown-done">Done</button>
+            </li>
+        </ul>
+    </div>
+</div>

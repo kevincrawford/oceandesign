@@ -1,0 +1,130 @@
+/*
+* ***************************************************
+ * RIGHTNAV
+ * ***************************************************
+ */
+#RightNavMenu {
+  margin: @wh-main-padding 0;
+  padding: 0;
+}
+
+#RightNavMenu > ul {
+  padding: 0;
+}
+
+
+
+.uxr-subnav {
+	display:none;
+}
+
+
+
+.uxr-reorderable-list ul li {
+	position:relative;
+	height: 56px;
+}
+
+
+.uxr-reorderable-list ul li .option-check {
+	padding-top: 6px;
+}
+
+.uxr-reorderable-list ul li .option-order {
+	position: absolute;
+	right: 9px;
+}
+
+.uxr-reorderable-list ul li .option-order .form-control {
+	width:60px;
+}
+
+.uxr-reorderable-list ul li .option-require {
+	position: absolute;
+	right: 78px;
+}
+
+.uxr-reorderable-list ul li .option-require .form-control {
+	width:140px;
+}
+
+
+.uxr-grid-flyover {
+  position:relative;
+  overflow:hidden;
+
+  /* TODO: figure out how to handle css3 transition vs. javascript animation;*/
+  .uxr-grid-container, .uxr-record-container {
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    -webkit-transition: width .5s;
+    -moz-transition: width .5s;
+    transition: width .5s;
+  }
+
+  .uxr-grid-container {
+    width:100%;
+  }
+
+  .uxr-record-container {
+    background: #ddd;
+    right:0;
+    width:0px;
+    overflow:hidden;
+    overflow-x:hidden;
+    overflow-y:hidden;
+  }
+
+  @media (min-width: @screen-sm-min) {
+    &.uxr-open {
+      .uxr-grid-container {
+        width: 20%;
+      }
+
+      .uxr-record-container {
+        width: 80%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+      }
+    }
+  }
+}
+
+.uxr-popover-info {
+  color: blue;
+}
+
+/*--------------------------------
+  Data Visualization Center Titles for IE8
+  --------------------------------*/
+
+.wh-title-center {
+  background: transparent;
+  width:100%;
+  height:100%;
+  position: relative;
+  top: -7px; /** don't know why HighCharts is putting this there... **/
+}
+
+.wh-title-center table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width:100%;
+  height:100%;
+  margin:0px;
+  padding:0px;
+}
+
+.wh-title-center tr,
+.wh-title-center td {
+  margin:0px;
+  padding:0px;
+  border: none;
+}
+
+.wh-title-center td {
+  text-align: center;
+  padding: 0 20px 0 0;
+  line-height: 1.0em;
+}

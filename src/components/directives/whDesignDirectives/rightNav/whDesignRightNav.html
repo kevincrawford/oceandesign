@@ -1,0 +1,5 @@
+<div id="RightNavMenu" ng-if="display">
+    <ul>
+        <li class="list-group-item" ng-include="'components/directives/whDesignDirectives/rightNav/whDesignRightNav-inner.html'" ng-repeat="item in items" ng-class="{ activeSelf: item.activeSelf, activeParent: item.activeParent }"></li>
+    </ul>
+</div>

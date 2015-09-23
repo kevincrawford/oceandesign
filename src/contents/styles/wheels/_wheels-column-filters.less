@@ -1,0 +1,185 @@
+//----------------------------------------
+//  Set popover sizes
+//----------------------------------------
+.popover.wh-popover-search {
+	max-width: 300px;
+	width: 300px;
+}
+
+.popover.wh-popover-number-range,
+.popover.wh-popover-date-range,
+.popover.wh-popover-checklist {
+	max-width: 370px;
+	width: 370px;
+}
+
+
+//----------------------------------------
+//  Common column filter properties
+//----------------------------------------
+.wh-cf {
+	padding: 14px 7px;
+
+	label {
+		color: @brand-primary;
+	}
+
+	.form-control {
+		height: 32px;
+		padding: 8px 16px 6px 16px;
+	}
+
+	.form-control.mod {
+		padding: 7px 16px 6px 16px;
+	}
+
+	.form-control.wh-field-date {
+			padding: 2px 30px 0 9px;
+	}
+
+	.btn {
+		width: 100%;
+		margin-top: 12px;
+		padding: 6px 16px;
+	}
+
+	.trim-right {
+		padding-right: 12px;
+	}
+
+	.trim-left {
+		padding-left: 12px;
+	}
+
+}
+
+//----------------------------------------
+//  Search specific properties
+//----------------------------------------
+.wh-cf-search {
+    .form-group {
+	    margin-bottom: 0;
+	}
+	.form-control-feedback {
+	    color: @brand-primary;
+	}
+	.form-control-feedback {
+	    top: 9px;
+	}
+}
+
+//----------------------------------------
+//  Number & Date specific properties
+//----------------------------------------
+.wh-cf-number-range,
+.wh-cf-date-range {
+	.inner-addon .fa {
+		padding-top: 9px;
+	}
+}
+
+
+//----------------------------------------
+//  Checklist specific properties
+//----------------------------------------
+.wh-cf-checklist {
+	.wh-checklist {
+		height: 146px;
+		margin-bottom: 12px;
+	}
+
+	.list-group {
+		height: 100%;
+		border-radius: 0px;
+		overflow-y: auto;
+		-webkit-box-shadow: inset 0px -8px 12px -9px rgba(0, 0, 0, 0.45);
+		-moz-box-shadow:    inset 0px -8px 12px -9px rgba(0, 0, 0, 0.45);
+		box-shadow:         inset 0px -8px 12px -9px rgba(0, 0, 0, 0.45);
+		//border-bottom: 1px solid #f0f0f0;
+
+		li {
+			border-radius: 0px;
+			padding: 5px 15px;
+			//border: 1px solid #f0f0f0;
+			border: none;
+
+			a {
+				color: @gray-dark;
+			}
+
+			a:hover {
+				color: @brand-primary;
+				text-decoration: none;
+			}
+		}
+	}
+
+	.fa {
+		color: @brand-primary;
+	}
+}
+
+//----------------------------------------
+//  inner addons
+//----------------------------------------
+.inner-addon {
+  position: relative;
+}
+
+/* style glyph */
+.inner-addon .glyphicon,
+.inner-addon .fa {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align glyph */
+.left-addon .glyphicon, .left-addon .fa  { left:  0px;}
+.right-addon .glyphicon, .right-addon .fa { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+
+//----------------------------------------
+//  Number Field Input Spinners
+//----------------------------------------
+input[type="number"] {
+    position: relative;
+    //margin: 0 0 12px;
+    //border: 1px solid @gray-light;
+    //border-color: #BBB #ECECEC #ECECEC #BBB;
+    //padding: .2rem;
+}
+
+input[type="number"].mod::-webkit-outer-spin-button, 
+input[type="number"].mod::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    background: #FFF url(/content/img/NumberRange_Icon.png) no-repeat center center;
+    width: 24px;
+    //border-left: 1px solid @gray-light;
+    opacity: .5; /* shows Spin Buttons per default (Chrome >= 39) */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+input[type="number"].mod::-webkit-inner-spin-button:hover,
+input[type="number"].mod::-webkit-inner-spin-button:active{
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    opacity: .8;
+}
+
+/* Override browser form filling */
+input:-webkit-autofill {
+    background: black;
+    color: red;
+}
+
+input[type="number"].mod::-webkit-outer-spin-button {
+	background-color:#ddd;
+}

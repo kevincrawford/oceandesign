@@ -1,0 +1,19 @@
+<div ng-controller="stackedBarController as c">
+    <h4>Demonstrates dynamic changes to the series in a different way</h4>
+    <h7>Risk Level</h7>
+    <div class="row">
+        <div class="col-md-2" ng-repeat="series in c.series.slice().reverse()" ng-click="c.selected = 4 - $index " style="cursor: pointer;">
+            <span class="pull-left" style="height: 14px; width: 14px; margin-right: 2px;" ng-style="{ 'background-color': c.selectedColors[4 - $index], 'border': '1px solid ' + c.selectedColors[4 - $index] }"></span>
+            <b>{{series.name}}</b>
+            <br/>
+            <span>{{series.subTitle}}</span>
+        </div>
+    </div>
+    <div style="height: 70px; width: 680px;" wh-bar-chart display-as-stacked="true" disable-hover-state="true" plot-background-color="f2f2f2" categories="c.categories" show-category-labels="c.showCategoryLabels" show-value-axis-labels="c.showValueAxisLabels" series="c.series" data="c.data" max-y-value="c.maxYValue"></div>
+    <div>
+        <label for="showCategoryLabels">Show Category Labels</label> <input type="checkbox" ng-model="c.showCategoryLabels" id="showCategoryLabels">
+    </div>
+    <div>
+        <label for="showValueAxisLabels">Show Value Axis Labels</label> <input type="checkbox" ng-model="c.showValueAxisLabels" id="showValueAxisLabels">
+    </div>
+</div>

@@ -1,0 +1,92 @@
+<p>TODO: Color usage and definitions</p>
+<p>TODO: include Hex, RGB, HSL, CMYK, and Pantone swatches</p>
+<p>TODO: include Hex & RGB @media conversions targeted for Projector & Print</p>
+<style>
+	
+.wh-color-swatch {
+	position: relative;
+	width: 180px;
+	height: 200px;
+	overflow: hidden;
+	border: 1px solid #d2d2d2;
+	border-radius: 4px;
+}
+
+.wh-color-swatch .color {
+	position: absolute;
+	width:100%;
+	height: 160px;
+}
+
+.wh-color-swatch .darker {
+	position: absolute;
+	right: 0px;
+	width: 20%;
+	height: 40px;
+}
+
+.wh-color-swatch .dark {
+	position: absolute;
+	right: 0px;
+	top: 40px;
+	width: 20%;
+	height: 40px;
+}
+
+.wh-color-swatch .light {
+	position: absolute;
+	right: 0px;
+	top: 80px;
+	width: 20%;
+	height: 40px;
+}
+
+.wh-color-swatch .lighter {
+	position: absolute;
+	right: 0px;
+	top: 120px;
+	width: 20%;
+	height: 40px;
+}
+
+.wh-color-swatch .details {
+	position: absolute;
+	top: 160px;
+	width: 100%;
+	height: 40px;
+}
+
+.wh-swatch-brand-primary .color {
+	background: #777
+}
+
+.wh-swatch-brand-primary .darker {
+	background: #555
+}
+
+.wh-swatch-brand-primary .dark {
+	background: #666
+}
+
+.wh-swatch-brand-primary .light {
+	background: #888
+}
+
+.wh-swatch-brand-primary .lighter {
+	background: #999
+}
+
+</style>
+<div class="wh-color-swatch wh-swatch-brand-primary">
+	<div class="color"></div>
+	<div class="darker">d2</div>
+	<div class="dark">d1</div>
+	<div class="light">l1</div>
+	<div class="lighter">l2</div>
+	<div class="details">
+		<h4>Name</h4>
+		<div>hex</div>
+		<div>rbg</div>
+		<div>rgba</div>
+	</div>
+</div>

@@ -1,0 +1,131 @@
+.wh-filter-tray-item {
+	a {
+		display: block;
+		font-family: 'ProximaNovaRgBold';
+		font-size: 14px;
+		margin:0;
+		padding:0 15px;
+		border: none;
+		border-top: 5px solid @brand-primary;
+		color: @gray-dark;
+		height:57px;
+		line-height: 55px;
+		background: #fff;
+		vertical-align: middle;
+		width: 100%;
+		text-align: left;
+		text-decoration:none;
+		.fa {
+			padding-top:20px;
+		}
+	}
+	ul {
+		border-top: 1px solid @wh-gray-rule;
+		border-bottom: 1px solid @wh-gray-rule;
+		margin:0;
+	}
+	li {
+		border:none;
+		span.fa {
+			margin-right:10px;
+			color: @brand-primary;
+		}
+	}
+	.indented {
+		padding-left:36px;
+	}
+
+	.wh-cf {
+		padding: 0;
+	}
+}
+
+//----------------------------------------
+//  Number & Date specific properties
+//----------------------------------------
+.wh-field {
+	label {
+		color: @brand-primary;
+	}
+
+	.form-control {
+		height: 32px;
+		padding: 8px 16px 6px 16px;
+	}
+
+	.wh-field-number-range,
+	.wh-field-date-range {
+		.inner-addon .fa {
+			padding-top: 9px;
+		}
+	}
+	.form-control.wh-field-date {
+			padding: 2px 30px 0 9px;
+	}
+}
+
+
+//----------------------------------------
+//  inner addons
+//----------------------------------------
+.inner-addon {
+  position: relative;
+}
+
+/* style glyph */
+.inner-addon .glyphicon,
+.inner-addon .fa {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align glyph */
+.left-addon .glyphicon, .left-addon .fa  { left:  0px;}
+.right-addon .glyphicon, .right-addon .fa { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+
+//----------------------------------------
+//  Number Field Input Spinners
+//----------------------------------------
+input[type="number"] {
+    position: relative;
+    //margin: 0 0 12px;
+    //border: 1px solid @gray-light;
+    //border-color: #BBB #ECECEC #ECECEC #BBB;
+    //padding: .2rem;
+}
+
+input[type="number"].mod::-webkit-outer-spin-button, 
+input[type="number"].mod::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    background: #FFF url(/content/img/NumberRange_Icon.png) no-repeat center center;
+    width: 24px;
+    //border-left: 1px solid @gray-light;
+    opacity: .5; /* shows Spin Buttons per default (Chrome >= 39) */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+input[type="number"].mod::-webkit-inner-spin-button:hover,
+input[type="number"].mod::-webkit-inner-spin-button:active{
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    opacity: .8;
+}
+
+/* Override browser form filling */
+input:-webkit-autofill {
+    background: black;
+    color: red;
+}
+
+input[type="number"].mod::-webkit-outer-spin-button {
+	background-color:#ddd;
+}

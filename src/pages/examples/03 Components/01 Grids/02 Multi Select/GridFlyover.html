@@ -1,0 +1,39 @@
+<div class="row" ng-controller="gridFlyoverController as c">
+    <div class="col-md-12">
+        <div class="btn-group">
+            <button type="button" class="btn btn-default"
+                    ng-repeat="config in c.configs"
+                    ng-class="{ 'btn-primary': c.currentConfiguration == config }"
+                    ng-click="c.currentConfiguration = config">{{config.name}}</button>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="uxr-grid-flyover clearfix" ng-class="{ 'uxr-open': c.displayed != null }" style="height: 300px">
+            <div wh-grid=""
+                 multiselect="true"
+                 un-display-rows="true"
+                 class="uxr-grid-container"
+                 configuration="c.currentConfiguration"
+                 selected="c.selected"
+                 displayed="c.displayed"></div>
+            <div class="uxr-record-container xs-hidden">
+                <div class="col-md-12">
+                    <h4>{{ c.displayed.title }}</h4>
+                </div>
+                <div class="col-md-6">
+                    <p>Value: {{ c.displayed.value }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p>Color: {{ c.displayed.color }}</p>
+                </div>
+                <div class="col-md-12">
+                    <pre>{{ c.displayed | json }}</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <pre>Has selected: {{ !!c.selected }}</pre>
+        <pre># of items selected: {{ (c.selected || []).length }}</pre>
+    </div>
+</div>

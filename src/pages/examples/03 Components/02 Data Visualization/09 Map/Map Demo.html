@@ -1,0 +1,78 @@
+<div ng-controller="mapDemoController as c">
+    <div wh-us-map chart-tab-title="c.chartTitle" chart-sub-tab-title="c.chartSubTitle" series="c.series" data="c.data" tooltip-formatter="c.buildTooltip(point)" auto-group group-tooltip-formatter="c.buildGroupTooltip(point, group)"></div>
+    <h4>Data</h4>
+    <div class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="title" class="col-sm-2 control-label">Chart Title</label>
+            <div class="col-sm-10">
+                <input id="title"
+                       class="form-control"
+                       type="text"
+                       ng-model="c.chartTitle"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="subTitle" class="col-sm-2 control-label">Chart Sub Title</label>
+            <div class="col-sm-10">
+                <input id="subTitle"
+                       class="form-control"
+                       type="text"
+                       ng-model="c.chartSubTitle"/>
+            </div>
+        </div>
+    </div>
+    <div wh-tabs autocollapse="true">
+        <div wh-pane tab-title="{{s.name}}" ng-repeat="s in c.series track by $index">
+            <div class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">Series Name</label>
+                    <div class="col-sm-10">
+                        <input id="name"
+                               class="form-control"
+                               type="text"
+                               ng-model="s.name"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="color" class="col-sm-2 control-label">Color</label>
+                    <div class="col-sm-10">
+                        <input id="color"
+                               class="form-control"
+                               type="text"
+                               ng-model="s.color"/>
+                    </div>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th ng-if="$index == 0">Name</th>
+                        <th ng-if="$index > 0">Driver Name</th>
+                        <th ng-if="$index > 0">Driver Address</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="i in c.data[$index] track by $index">
+                        <td ng-if="$parent.$index == 0">
+                            <input ng-model="c.data[$parent.$parent.$index][$parent.$index].name"/>
+                        </td>
+                        <td ng-if="$parent.$index > 0">
+                            <input ng-model="c.data[$parent.$parent.$index][$parent.$index].driverName"/>
+                        </td>
+                        <td ng-if="$parent.$index > 0">
+                            <input ng-model="c.data[$parent.$parent.$index][$parent.$index].driverAddress"/>
+                        </td>
+                        <td>
+                            <input type="number" ng-model="c.data[$parent.$index][$index].lat"/>
+                        </td>
+                        <td>
+                            <input type="number" ng-model="c.data[$parent.$index][$index].lng"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

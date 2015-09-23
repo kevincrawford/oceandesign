@@ -1,0 +1,6 @@
+<div class="panel" ng-hide="!selected">
+    <div class="pull-right" ng-show="collapsible">
+        <button type="button" class="close" data-toggle="tooltip" data-placement="bottom" title="Close" ng-click="selected=false"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    </div>
+    <div class="tab-pane" ng-transclude></div>
+</div>

@@ -1,0 +1,17 @@
+<div>
+    <div ng-include="controller.indexContent"></div>
+
+    <div class="uxr-subnav" ng-if="controller.children.length">
+        <ul>
+            <li ng-repeat="child in controller.children">
+                <a href="#{{child.href}}">{{child.label}}</a>
+            </li>
+        </ul>
+    </div>
+
+    <div ng-if="controller.examples.length">
+        <div ng-repeat="ex in controller.examples">
+            <div wh-design-example example-title="ex.title" html="ex.html" coffee="ex.coffee" js="ex.js" css="ex.css" extra-files-file="ex.extraFilesFile"></div>
+        </div>
+    </div>
+</div>

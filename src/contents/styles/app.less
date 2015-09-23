@@ -1,0 +1,99 @@
+/****** This file contains Design reference-specific stuff *******/
+.example {
+  h3.example-header {
+    padding-bottom: 1em;
+  }
+  .ace_editor {
+    height: 200px;
+  }
+}
+
+
+/* ???
+.navbar-text .dropdown-menu {
+  left: -10px;
+  padding: 10px;
+}
+
+*/
+
+/** show custom glyphicons */
+.bs-glyphicons {
+  margin: 0 -10px 20px;
+  overflow: hidden;
+}
+.bs-glyphicons-list {
+  padding-left: 0;
+  list-style: none;
+}
+.bs-glyphicons li {
+  float: left;
+  width: 25%;
+  height: 115px;
+  padding: 10px;
+  font-size: 10px;
+  line-height: 1.4;
+  text-align: center;
+  background-color: #f9f9f9;
+  border: 1px solid #fff;
+}
+.bs-glyphicons .glyphicon, .bs-glyphicons .wh-glyphicon {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+.bs-glyphicons .glyphicon-class {
+  display: block;
+  text-align: center;
+  word-wrap: break-word; /* Help out IE10+ with class names */
+}
+.bs-glyphicons li:hover {
+  color: #fff;
+  background-color: #563d7c;
+}
+@media (min-width: 768px) {
+  .bs-glyphicons {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .bs-glyphicons li {
+    width: 12.5%;
+    font-size: 12px;
+  }
+}
+
+/** search is differnet than in Ocean -- we don't have the extra dropdown **/
+#SearchForm .search-dropdown {
+  left: 10px;
+  right: 35px;
+}
+
+.wh-donut-wrapper {
+  overflow: auto;
+}
+
+/** donut options **/
+.generate-single-donut-small(400);
+.generate-single-donut-small(190);
+.generate-single-donut-small(@i) when (@i > 0) {
+   .wh-single-donut-small-@{i} {
+     float: left;
+     height: @i * 1px;
+     width: @i * 1px;
+   }
+  .generate-single-donut-small(@i - 20);
+}
+
+.generate-multi-donut(400, 800,1);
+.generate-multi-donut(@h,@w,@start) when (@w > 0) {
+  .generate-multi-donut(@h,@w);
+  .generate-multi-donut(@h,@w - 50,@start);
+}
+.generate-multi-donut(@h,@w) when (@h > 0) {
+  .wh-multi-donut-@{h}-@{w} {
+    float: left;
+    height: @h * 1px;
+    width: @w * 1px;
+  }
+  .generate-multi-donut(@h - 50,@w);
+}

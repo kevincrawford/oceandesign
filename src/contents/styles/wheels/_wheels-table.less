@@ -1,0 +1,113 @@
+/*************************************************
+******* TABLES ***********************************
+**************************************************/
+/** scrolling table **/
+.wh-fixed-table-container {
+  position: relative; /* could be absolute or relative */
+
+  .wh-fixed-table-header-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+  &.wh-fixed-table-container-bordered {
+    .wh-fixed-table-header-background {
+      border-top: 1px solid @table-border-color;
+      border-right: 1px solid @table-border-color;
+      border-bottom: 2px solid @table-border-color;
+    }
+  }
+  .wh-fixed-table-container-inner {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+    table.table {
+      width: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      /** prevent the bootstrap table styling from leaving empty space below the header **/
+      > thead > tr > th {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      .wh-fixed-table-th-inner {
+        position: absolute;
+        top: 0;
+        text-align: left;
+        padding-left: 5px;
+        margin-left: -5px;
+      }
+      .wh-column-right .wh-fixed-table-th-inner {
+        text-align: right;
+        padding-right: 5px;
+        padding-left: 0;
+      }
+      &.table-bordered {
+        border-top: 0;
+        > thead > tr > th {
+          border-bottom: 0;
+        }
+        > tbody > tr:first-child > td {
+          border-top: 0;
+        }
+        .wh-fixed-table-th-inner {
+          border-left: 1px solid @table-border-color;
+          padding-left: 7px;
+          margin-left: -9px;
+        }
+        th:first-child .wh-fixed-table-th-inner {
+          padding-left: 9px;
+        }
+      }
+    }
+  }
+}
+
+.wh-fixed-table-container {
+  @wh-header-height: (@line-height-base * @font-size-base) + 2*@table-cell-padding;
+  @wh-header-height-with-border: @wh-header-height + 1px;
+  padding-top: @wh-header-height;
+
+  .wh-fixed-table-header-background {
+    height: @wh-header-height;
+  }
+  &.wh-fixed-table-container-bordered {
+    padding-top: @wh-header-height-with-border;
+    .wh-fixed-table-header-background {
+      height: @wh-header-height-with-border;
+    }
+  }
+  .wh-fixed-table-container-inner {
+    table.table {
+      .wh-fixed-table-th-inner {
+        padding-top: @table-cell-padding;
+        padding-bottom: @table-cell-padding;
+      }
+    }
+  }
+}
+
+.generate-fixed-table-container(6);
+.generate-fixed-table-container(@i) when (@i > 0) {
+  .wh-fixed-table-container-header-rows-@{i} {
+    @wh-header-height: (@line-height-base * @font-size-base) * @i + 2*@table-cell-padding;
+    @wh-header-height-with-border: @wh-header-height + 1px;
+    padding-top: @wh-header-height;
+
+    .wh-fixed-table-header-background {
+      height: @wh-header-height;
+    }
+    &.wh-fixed-table-container-bordered {
+      padding-top: @wh-header-height-with-border;
+      .wh-fixed-table-header-background, .wh-fixed-table-th-inner {
+        height: @wh-header-height-with-border;
+      }
+    }
+  }
+  .generate-fixed-table-container(@i - 1);
+}
+
+.table-no-header > tbody > tr:first-child > td {
+  border-top: none;
+}

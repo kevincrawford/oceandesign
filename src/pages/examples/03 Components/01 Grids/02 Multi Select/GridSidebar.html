@@ -1,0 +1,54 @@
+<div class="row" ng-controller="gridSidebarController as c">
+    <div class="col-md-12">
+        <div class="btn-group">
+            <button type="button" class="btn btn-default"
+                    ng-repeat="config in c.configs"
+                    ng-class="{ 'btn-primary': c.currentConfiguration == config }"
+                    ng-click="c.currentConfiguration = config">{{config.name}}</button>
+        </div>
+        <form class="form-horizontal" role="form">
+            <div class="form-group" ng-if="c.currentConfiguration.filters.freeText">
+                <label for="freeTextFilter" class="col-sm-2 control-label">Free text filter</label>
+                <div class="col-sm-10">
+                    <input id="freeTextFilter"
+                           class="form-control"
+                           type="text"
+                           ng-model="c.freeTextFilter.value"
+                           wh-design-debounce="100"/>
+                </div>
+            </div>
+            <div class="form-group" ng-if="c.currentConfiguration.filters.fleetId !== undefined">
+                <label for="fleetIdFilter" class="col-sm-2 control-label">Fleet ID filter</label>
+                <div class="col-sm-10">
+                    <input id="fleetIdFilter"
+                           class="form-control"
+                           type="text"
+                           ng-model="c.currentConfiguration.filters.fleetId"
+                           wh-design-debounce="100"/>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div>
+        <div class="col-md-9">
+            <div wh-grid=""
+                 multiselect="true"
+                 configuration="c.currentConfiguration"
+                 selected="c.selected"
+                 displayed="c.displayed"
+                 style="height: 300px"></div>
+        </div>
+        <div class="col-md-3 hidden-xs">
+            <div ng-if="c.displayed" style="height: 300px; overflow: scroll">
+                <h4>{{ c.displayed.title }}</h4>
+                <p>Value: {{ c.displayed.value }}</p>
+                <p>Color: {{ c.displayed.color }}</p>
+                <pre>{{ c.displayed | json }}</pre>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <pre>Has selected: {{ !!c.selected }}</pre>
+            <pre># of items selected: {{ (c.selected || []).length }}</pre>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div ng-controller="lineChartController as c">
+    <h4>Includes click handler + dynamic tooltip</h4>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="col-xs-4 col-md-2 control-label">Chart title</label>
+            <div class="col-xs-8 col-md-10">
+                <input class="form-control" placeholder="Chart title" ng-model="c.title"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-4 col-md-2 control-label">Chart sub-title</label>
+            <div class="col-xs-8 col-md-10">
+                <input class="form-control" placeholder="Chart sub-title" ng-model="c.subTitle"/>
+            </div>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th></th>
+            <th colspan="{{c.series.length}}">Series</th>
+        </tr>
+        <tr>
+            <th>Category</th>
+            <th ng-repeat-start="s in c.series track by $index"><input ng-model="c.series[$index]"/></th>
+            <th ng-repeat-end>Tooltip</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="i in c.categories track by $index">
+            <td><input ng-model="c.categories[$index]"/></td>
+            <td ng-repeat-start="s in c.series track by $index">
+                <input type="number" ng-model="c.data[$index][$parent.$index]"/>
+            </td>
+            <td ng-repeat-end>
+                <input ng-model="c.tooltips[$index][$parent.$index]"/>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="{{c.series.length + 1}}">
+                <button class="btn btn-primary" ng-click="c.addSeries('')"><span class="glyphicon glyphicon-plus"></span> Add Series</button>
+                <button class="btn btn-primary" ng-click="c.addCategory('')"><span class="glyphicon glyphicon-plus"></span> Add data point</button>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+
+    <div wh-line-chart categories="c.categories" series="c.series" data="c.data" tooltip-formatter="c.buildTooltip(point)" on-clicked="c.clicked(point)"></div>
+</div>

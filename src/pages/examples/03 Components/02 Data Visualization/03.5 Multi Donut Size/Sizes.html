@@ -1,0 +1,13 @@
+<div ng-controller="multiDonutSizeController as c">
+    <% _.forEach([800,700,600,500,400,300,200], function (width) {
+        _.forEach([400,350,300,250,200], function (height) {%><h3><%=height%>x<%=width%> px</h3>
+    <div class="wh-donut-wrapper">
+        <div wh-multi-donut class="wh-multi-donut-<%=height%>-<%=width%>" text="'1,001'" data="c.data1"></div>
+        <div wh-multi-donut class="wh-multi-donut-<%=height%>-<%=width%>" text="'51'" data="c.data2"></div>
+        <div wh-multi-donut class="wh-multi-donut-<%=height%>-<%=width%>" text="'800'" data="c.data3"></div>
+        <div wh-multi-donut class="wh-multi-donut-<%=height%>-<%=width%>" text="'50'" sub-text="'other'" data="c.data4"></div>
+        <div wh-multi-donut class="wh-multi-donut-<%=height%>-<%=width%>" text="'100'" data="c.data5"></div>
+    </div>
+    <% });
+    }); %>
+/div>

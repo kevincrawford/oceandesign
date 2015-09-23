@@ -1,0 +1,155 @@
+<div class="col-md-3">
+    <div class="checkbox">
+        <label>
+            <input type="radio" ng-model="value.isRecurring" ng-value="true" />&nbsp;Recurring
+        </label>
+        <label>
+            <input type="radio" ng-model="value.isRecurring" ng-value="false" />&nbsp;One Time
+        </label>
+    </div>
+</div>
+<div class="col-md-9">
+    <div class="row">
+        <div class="col-md-4">
+            <p class="pull-right">Time</p>
+        </div>
+        <div class="col-md-8">
+            <label>
+            <div wh-select dropdown options="timeValues" selected="value.time"></div>
+            Central Standard Time
+        </label>
+        </div>
+    </div>
+    <div class="form-group" ng-if="!value.isRecurring ">
+        <label class="col-xs-4" for="DP">Date</label>
+        <div class="col-xs-8">
+            <div class="input-group">
+                <input type="text" wh-date-picker mindate="0" id="DP" class="form-control" ng-model="value.date">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="value.isRecurring">
+        <div class="col-md-4">
+            <div class="checkbox">
+                <label>
+                    <input type="radio" ng-model="value.recurringInterval" value="Daily"/> Daily
+                </label>
+                <label>
+                    <input type="radio" ng-model="value.recurringInterval" value="Weekly"/> Weekly
+                </label>
+                <label>
+                    <input type="radio" ng-model="value.recurringInterval" value="Monthly"/> Monthly
+                </label>
+                <label>
+                    <input type="radio" ng-model="value.recurringInterval" value="Yearly"/> Yearly
+                </label>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div ng-if="value.recurringInterval == 'Daily'">
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="value.isWeekdays" ng-value="true"/> Every <input ng-model="value.days" /> Day(s)
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="value.isWeekdays" ng-value="false"/> Every Weekday
+                    </label>
+                </div>
+            </div>
+            <div ng-if="value.recurringInterval == 'Weekly'">
+                <div>
+                    Every <input type="number" ng-model="nWeeks"/> Weeks(s)
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="value.isSunday"/> Sunday
+                    </label>
+                    <label>
+                        <input type="checkbox" ng-model="value.isMonday"/> Monday
+                    </label>
+                    <label>
+                        <input type="checkbox" ng-model="value.isTuesday"/> Tuesday
+                    </label>
+                    <label>
+                        <input type="checkbox" ng-model="value.isWednesday"/> Wednesday
+                    </label>
+                    <label>
+                        <input type="checkbox" ng-model="value.isThursday"/> Thursday
+                    </label>
+                    <label>
+                        <input type="checkbox" ng-model="value.isFriday"/> Friday
+                    </label>
+                    <label>
+                        <input type="checkbox" ng-model="value.isSaturday"/> Saturday
+                    </label>
+                </div>
+            </div>
+            <div ng-if="value.recurringInterval == 'Monthly'">
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="value.isDayOfMonth" ng-value="true"/> Day
+                            <input type="number" ng-model="value.day"/>
+                            of every
+                            <input type="number" ng-model="value.months"/> month(s)
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="value.isDayOfMonth" ng-value="false"/> The
+                            <div wh-select dropdown options="weeksOfMonth" selected="value.weekOfMonth"></div>
+                            <div wh-select dropdown options="daysOfWeek" selected="value.dayOfWeek"></div>
+                            of every <input type="number" ng-model="mMonth"/> month(s)
+                    </label>
+                </div>
+            </div>
+            <div ng-if="value.recurringInterval == 'Yearly'">
+                <div>
+                    Every <input type="number" ng-model="nYears"/> Year(s)
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="value.isDayOfMonth" ng-value="true"/> On:
+                            <div wh-select dropdown options="months" selected="value.month"></div>
+                            <input type="number" ng-model="value.day"/>
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="value.isDayOfMonth" ng-value="false"/> On the:
+                        <div wh-select dropdown options="weeksOfMonth" selected="value.weekOfMonth"></div>
+                        <div wh-select dropdown options="daysOfWeek" selected="value.dayOfWeek"></div>
+                        of
+                        <div wh-select dropdown options="months" selected="value.month"></div>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label class="col-xs-4" for="fromDP">Start Date</label>
+                    <div class="col-xs-8">
+                        <div class="input-group">
+                            <input type="text" wh-date-picker mindate="0" id="fromDP" class="form-control" ng-model="value.startDate" placeholder="Current Date">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                    </div>
+                    <label class="col-xs-4" for="fromDP">End Date (Optional)</label>
+                    <div class="col-xs-8">
+                        <div class="input-group">
+                            <input type="text" wh-date-picker mindate="0" id="toDP" class="form-control" ng-model="value.endDate">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display: none">
+    <pre>{{ timeValues | json}}</pre>
+    <pre>{{ daysOfWeek | json}}</pre>
+    <pre>{{ weeksOfMonth | json}}</pre>
+    <pre>{{ months | json}}</pre>
+</div>

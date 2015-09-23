@@ -1,0 +1,24 @@
+<section>
+        <div class="panel-body table-scroll">
+            <table class="table table-bordered">
+                <thead class="column-titles">
+                <th class="column-titles-center" ng-repeat="c in columns" ng-click="$parent.setSort(c.index)" style="cursor: pointer" ng-hide="c.hidden">
+                    {{ c.title }}
+                <span ng-if="$parent.sort == c.index">
+                    <span ng-if="$parent.sortDir == 'asc'" class="glyphicon glyphicon-chevron-down"></span>
+                    <span ng-if="$parent.sortDir != 'asc'" class="glyphicon glyphicon-chevron-up"></span>
+                </span>
+                </th>
+                </thead>
+                <tbody>
+                <tr ng-repeat="d in data" ng-class="{ 'active': d == $parent.selected }" ng-click="$parent.selected = d" style="cursor: pointer">
+                    <td ng-repeat="c in columns" ng-hide="c.hidden">
+                        <div ng-if="c.formatter" ng-bind-html="trustAsHtml(c.formatter(d[c.index], d, c))"></div>
+                        <div ng-if="!c.formatter">{{ d[c.index] }}</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+</section>
+

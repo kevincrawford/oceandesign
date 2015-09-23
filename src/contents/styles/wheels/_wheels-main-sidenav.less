@@ -1,0 +1,31 @@
+/*
+* ***************************************************
+ * SIDENAV
+ * ***************************************************
+ */
+#Sidenav  {
+  width: @wh-sidenav-width;
+}
+
+.sidenav-minified #Sidenav {
+  width:@wh-sidenav-minified-width;
+}
+
+@media (max-width: @screen-sm-max) {
+  .sidenav-minified #Sidenav {
+    width:@wh-sidenav-minified-width-sm;
+  }
+}
+
+body {
+  .menu {
+    .main-nav, .secondary-nav {
+      span{
+        padding-left: 0px; /** override the style from PSD2HTML **/
+      }
+    }
+  }
+}
+.menu .holder {
+  overflow: hidden;
+}

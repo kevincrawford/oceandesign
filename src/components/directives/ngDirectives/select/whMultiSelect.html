@@ -1,0 +1,10 @@
+<ul class="wh-select-no-dropdown wh-multi-select">
+    <li ng-click="allSelected = !allSelected" ng-class="{ selected: allSelected }">
+        <label>Select All</label>
+        <span ng-if="allSelected" class="checked glyphicon glyphicon-ok"></span>
+    </li>
+    <li ng-repeat="option in allOptions | orderBy: item.ItemDesc" ng-click="option.selected = !option.selected" ng-class="{ selected: option.selected }">
+        <label>{{option.item.ItemDesc}}</label>
+        <span ng-if="option.selected" class="checked glyphicon glyphicon-ok"></span>
+    </li>
+</ul>

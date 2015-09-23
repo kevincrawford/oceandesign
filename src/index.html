@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org" xmlns:app="ignored" <% if (typeof appName === 'undefined') { %>ng-app="app"<% } else { %><% if (!!appName) { %>ng-app="<%= appName %>"<% } %><% } %>>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Ocean UX Reference</title>
+    <meta name="description" content="Ocean UX Reference" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- ClickJacking Defense begin (https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet) -->
+    <style id="antiClickjack">body{display:none !important;}</style>
+    <script>(function(w){if(w.top===w.self){var a=w.document.getElementById('antiClickjack');a.parentNode.removeChild(a);}else{w.top.location=w.self.location;}}(window));</script>
+    <!-- ClickJacking Defense end -->
+
+    <% _.forEach(styles, function (style) { %><link rel="stylesheet" href="<%= style %>" />
+    <% }); %>
+
+    <% /* %>
+    <!--[if IE 7]><html lang="en" class="ie ie7"><![endif]-->
+    <!--[if IE 8]><html lang="en" class="ie ie8"><![endif]-->
+    <!--[if IE 9]><html lang="en" class="ie ie9"><![endif]-->
+    <!--[if IE 10]><html lang="en" class="ie ie10"><![endif]-->
+    <!--[if IE 11]><html lang="en" class="ie ie11"><![endif]-->
+    <!--[if !IE]><!--><html lang="en"><!--<![endif]-->
+    <% */ %>
+
+    <!-- FAVICONS -->
+    <link rel="shortcut icon" href="contents/img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="contents/img/favicon/favicon.ico" type="image/x-icon">
+
+
+    <!-- Specifying a Webpage Icon for Web Clip  -->
+    <link rel="apple-touch-icon" href="contents/img/splash/sptouch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="contents/img/splash/touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="contents/img/splash/touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="contents/img/splash/touch-icon-ipad-retina.png">
+
+    <!-- iOS web-app metas -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Startup image for web apps -->
+    <link rel="apple-touch-startup-image" href="contents/img/splash/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
+    <link rel="apple-touch-startup-image" href="contents/img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
+    <link rel="apple-touch-startup-image" href="contents/img/splash/iphone.png" media="screen and (max-device-width: 320px)">
+
+    <!-- When you load angular at the bottom, you need to create the "ng-cloak" rules yourself -->
+    <style>[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak{display:none;}ng\:form{display:block;}</style>
+
+
+    <!--[if lt IE 9]>
+    <% _.forEach(scriptsIe8, function (script) { %><script src="<%= script %>"></script><% }); %>
+    <![endif]-->
+</head>
+
+<body ng-cloak class="ng-cloak">
+    <div id='wrapper'>
+    <div wh-top-nav></div>
+
+        <main id='main' role='main'>
+            <div wh-side-nav></div>
+            <div class="container-fluid container-fluid-holder">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <!-- RIBBON -->
+                        <div wh-breadcrumb="" class="hidden-xs"></div>
+                        <!-- END: RIBBON -->
+
+                        <!--<!-- MAIN CONTENT -->
+                        <div id="content" ng-view></div>
+
+                        <div wh-design-rightnav></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="overlayContent"></div>
+
+    <% _.forEach(scripts, function (script) { %><script src="<%= script %>"></script>
+    <% }); %>
+
+</body>
+</html>

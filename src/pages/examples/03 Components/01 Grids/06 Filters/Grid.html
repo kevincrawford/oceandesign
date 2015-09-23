@@ -1,0 +1,36 @@
+<div class="row" ng-controller="gridFilterController as c">
+    <div class="col-md-12">
+        <div wh-grid=""
+             un-display-rows="true"
+             class="uxr-grid-container"
+             configuration="c.currentConfiguration"
+             selected="c.selected"
+             displayed="c.displayed"
+             style="height: 400px">
+            <!--
+            You could do something like this to override the default filters for fields with dateRange and numberRange filterType, but the below-included ones are provided by the grid by default
+            <div wh-field-type="dateRange">
+                <div ng-include src="'components/directives/ngDirectives/grid/dateRange.html'"></div>
+            </div>
+            <div wh-field-type="numberRange">
+                <div ng-include src="'components/directives/ngDirectives/grid/numberRange.html'"></div>
+            </div>
+            -->
+            <div wh-field="Status">
+                <div wh-select multiple options="$parent.c.statusOptions" selected="value" style="width: 100%; overflow: auto; max-height: 300px;"></div>
+            </div>
+         </div>
+    </div>
+    <!--<button ng-click="c.currentConfiguration.filters = {}">Clear</button>-->
+
+    <p>The above grid makes use of the 3 default filters available by the 'filterType' value on the column - text, dateRange, and numberRange.
+        It also uses a custom field-specific filter on Status, and gets no filter on the "Unfilterable" column because no filterType was specified, and no field-specific filter was defined.
+        The filters that are applied are listed below as the JSON object passed to the dataSource method.</p>
+    <p>If you provide your own custom filter, use a <code>wh-field</code> attribute to restrict it to a certain field, or <code>wh-field-type</code> attribute to restrict it to all columns with a
+       matching filterType property.  By default, you just need to manage the 'value' property - your HTML will get wrapped with buttons that manage copying the value to 'realValue' and closing the popup.
+       If you want to handle that part too, add a wh-custom attribute to your div as well.</p>
+    <p>NOTE: while all the filters you can apply are passed to the dataSource method, it doesn't actually do anything for some values that get passed, as it's just an example implementation.</p>
+    <div class="col-md-12">
+        <pre>{{ c.currentConfiguration.filters | json }}</pre>
+    </div>
+</div>

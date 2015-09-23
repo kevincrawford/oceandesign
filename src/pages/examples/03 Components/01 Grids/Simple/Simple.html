@@ -1,0 +1,12 @@
+<div class="row" ng-controller="simpleTableController as c">
+    <div class="col-md-9">
+        <div simple-table="" source="c.dataSource" columns="[ { index: 'title', title: 'Title' }, { index: 'color', title: 'Color', formatter: c.formatter }]" selected="c.selected"></div>
+    </div>
+    <div class="col-md-3">
+        <div ng-if="c.selected">
+            <h4>{{ c.selected.title }}</h4>
+            <p>Value: {{ c.selected.value }}</p>
+            <p>Color: {{ c.selected.color }}</p>
+        </div>
+    </div>
+</div>

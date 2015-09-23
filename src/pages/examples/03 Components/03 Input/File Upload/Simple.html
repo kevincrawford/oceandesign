@@ -1,0 +1,26 @@
+<div ng-controller="simpleFileUploadController as c">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Uploaded on</th>
+                <th>Attachment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="i in c.uploadedFiles">
+                <td>{{i.username}}</td>
+                <td>{{i.uploadedOn}}</td>
+                <td><a href="{{i.attachmentLink}}">{{i.attachmentName}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div wh-single-file-upload button-text="'Attach a File'" url="c.uploadUrl" attributes="c.fileAttributes" file-uploaded="c.fileUploaded(item)" reset-attributes="c.resetAttributes()" maxFileSizeMB="1">
+        <input id="title"
+           class="form-control wh-file-title"
+           type="text"
+           placeholder="Enter Title"
+           ng-model="c.fileAttributes.title"
+        />
+    </div>
+</div>

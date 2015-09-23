@@ -1,0 +1,84 @@
+<!--
+<script>
+
+$( document ).ready(function() {
+	// simply triggers recordview animation
+	// TODO: Handle logic for user intent...
+	//       do they want recordview to stay open or close?
+	var toggleRecordView = function (e){
+	  //console.log(e);
+	  $('.uxr-grid-recordview').toggleClass('uxr-closed');
+	}
+
+	//TODO: Grid row selection should trigger recordview opening
+    //$('.uxr-grid-container').click(toggleRecordView);
+    $('.uxr-record-container').click(toggleRecordView);
+
+
+    //TODO: Show how recordview can apear as a "pop over"
+    //TODO: Show how recordview can apear using hover intent
+    //TODO: Make sizing decisions configurable
+});
+
+</script>
+
+<style>
+/* TODO: move css into wheels sass project*/
+	.uxr-grid-recordview {
+		position:relative;
+		height:300px;
+		overflow:hidden;
+	}
+	.uxr-grid-container,
+	.uxr-record-container {
+		position:absolute;
+	}
+
+	.uxr-grid-container {
+		height:100%;
+		width:20%;
+   	}
+
+	.uxr-closed .uxr-grid-container {
+		height:100%;
+		width:100%;
+   	}
+
+   	/* TODO: figure out how to handle css3 transition vs. javascript animation;*/
+	.uxr-record-container {
+		right:0;
+		height:100%;
+		-webkit-transition: width .5s;
+		-moz-transition: width .5s;
+    	transition: width .5s;
+   	}
+
+
+	.uxr-closed .uxr-record-container {
+		width:0px;
+		overflow:hidden;
+   	}
+
+	.uxr-record-container {
+		background: #ddd;
+		width:80%;
+   	}
+</style>
+
+<div>
+	<button class="btn btn-default" href="">Smart Filter 1</button>
+	<button class="btn btn-default" href="">Smart Filter 2</button>
+	<button class="btn btn-default" href="">Smart Filter 3</button>
+</div>
+<div class="uxr-grid-recordview uxr-closed clearfix">
+	<div class="uxr-grid-container">
+		Grid here "Click me"
+
+		<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+	</div>
+	<div class="uxr-record-container">
+		<div class="uxr-record-layout">Record Layout "Click me"</div>
+	</div>
+</div>
+
+-->

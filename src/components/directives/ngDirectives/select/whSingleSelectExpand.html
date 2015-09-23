@@ -1,0 +1,16 @@
+<div class="wh-select-expand wh-single-select">
+    <div class="dropdown">
+        <button class="btn btn-default collapsed" type="button" data-toggle="collapse" data-target="#{{idPrefix}}_options" aria-expanded="true" aria-controls="{{idPrefix}}_options">
+            <span class="caret-plus glyphicon glyphicon-plus pull-right"></span>
+            <span class="caret-minus glyphicon glyphicon-minus pull-right"></span>
+            <span ng-if="selected == null">&lt;NONE&gt;</span>
+            <span ng-if="selected != null">{{ selected.ItemDesc }}</span>
+        </button>
+        <ul id="{{idPrefix}}_options" class="collapse">
+            <li ng-repeat="option in allOptions | orderBy: item.ItemDesc" ng-click="$parent.selected = option.selected ? null : option.item" ng-class="{ selected: option.selected }">
+                <label>{{option.item.ItemDesc}}</label>
+                <span ng-if="option.selected" class="checked glyphicon glyphicon-ok"></span>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div ng-controller="multiDonutController as c">
+    <h4>Includes click handlers and dynamic tooltip</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+                <th>Tooltip content</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="i in c.data">
+                <td><input ng-model="i[0]"/></td>
+                <td><input type="number" ng-model="i[1]"/></td>
+                <td><input ng-model="c.tooltips[$index]"/></td>
+                <td>
+                    <button class="btn btn-primary" ng-click="c.data.splice($index, 1); c.tooltips.splice($index, 1)"><span class="glyphicon glyphicon-minus"></span> Remove</button>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    <button class="btn btn-primary" ng-click="c.data.push(['',0]); c.tooltips.push('')"><span class="glyphicon glyphicon-plus"></span> Add</button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <div class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="text" class="col-sm-2 control-label">Text</label>
+            <div class="col-sm-2">
+                <input id="text"
+                       class="form-control"
+                       type="text"
+                       ng-model="c.text"/>
+            </div>
+            <label for="subText" class="col-sm-2 control-label">Sub text</label>
+            <div class="col-sm-3">
+                <input id="subText"
+                       class="form-control"
+                       type="text"
+                       ng-model="c.subText"/>
+            </div>
+            <label for="autoOrder" class="col-sm-2 control-label">Auto order</label>
+            <div class="col-sm-1">
+                <input id="autoOrder"
+                       class="form-control"
+                       type="checkbox"
+                       ng-model="c.autoOrder"/>
+            </div>
+        </div>
+    </div>
+    <div wh-multi-donut="" text="c.text" sub-text="c.subText" data="c.data" on-label-clicked="c.labelClicked(name)" on-value-clicked="c.valueClicked(name, value)" auto-order="c.autoOrder" tooltip-formatter="c.buildTooltip(point)"></div>
+</div>

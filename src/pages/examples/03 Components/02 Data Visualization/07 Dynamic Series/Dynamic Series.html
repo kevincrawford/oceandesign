@@ -1,0 +1,25 @@
+<div ng-controller="dynamicSeriesController as c">
+    <h4>Demonstrates dynamic changes to the series, and using <code>value-is-percentage</code></h4>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-body" style="position: relative">
+                    <div class="row" style="padding-right: 100px">
+                        <div class="col-lg-3 col-sm-4 col-xs-12" ng-repeat="series in c.series" style="cursor: pointer; user-select: none" ng-click="series.visible = !series.visible" ng-mouseover="series.lineWidth=4" ng-mouseout="series.lineWidth=2">
+                            <span class="pull-left" style="height: 20px; width: 20px; margin-top: 9px; margin-right: 6px;" ng-style="{ 'background-color': series.visible ? series.color : 'none', 'border': '2px solid ' + series.color }"></span>
+                            <div class="pull-left">
+                                <b>{{series.name}}</b>
+                                <br/>
+                                <span>{{series.subTitle}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-default" style="position: absolute; top: 0; bottom: 0; right: 0; width: 75px; white-space: normal; border-top: none; border-bottom: none; border-right: none; border-radius: 0;" ng-click="c.showAll()">SHOW ALL</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div wh-line-chart value-is-percentage categories="c.categories" series="c.series" data="c.pctData" tooltip-formatter="c.buildTooltip(point)"></div>
+        </div>
+    </div>
+</div>

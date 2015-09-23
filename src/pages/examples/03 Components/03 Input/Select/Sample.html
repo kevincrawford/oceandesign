@@ -1,0 +1,71 @@
+<div ng-controller="selectSampleController as c">
+    <div class="well">
+        <div class="row">
+            <div class="col-lg-2 col-md-3">
+                <span>Multiple Types</span><br/>
+                <div wh-select multiple dropdown options="c.typeOptions" selected="c.filters.type"></div>
+            </div>
+            <div class="col-lg-2 col-md-3">
+                <span>Multiple Types</span><br/>
+                <div wh-select multiple expand options="c.typeOptions" selected="c.filters.type"></div>
+            </div>
+            <div class="col-lg-2 col-md-3">
+                <span>Multiple States</span><br/>
+                <div wh-select multiple options="c.stateOptions" selected="c.filters.state"></div>
+            </div>
+            <div class="col-lg-2 col-md-3">
+                <span>Type</span><br/>
+                <div wh-select dropdown options="c.typeOptions" selected="c.filters.singleType"></div>
+            </div>
+            <div class="col-lg-2 col-md-3">
+                <span>Type</span><br/>
+                <div wh-select expand options="c.typeOptions" selected="c.filters.singleType"></div>
+            </div>
+            <div class="col-lg-2 col-md-3">
+                <span>State</span><br/>
+                <div wh-select options="c.stateOptions" selected="c.filters.singleState"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2 col-md-3">
+                <span>Multiple Types</span><br/>
+                <div wh-select multiple options="c.typeOptions" selected="c.filters.type"></div>
+            </div>
+            <div class="col-lg-2 col-md-3">
+                <span>Multiple States</span><br/>
+                <div wh-select multiple dropdown options="c.stateOptions" selected="c.filters.state"></div>
+            </div>
+            <div class="col-lg-2 col-md-3">
+                <span>Multiple States</span><br/>
+                <div wh-select multiple expand options="c.stateOptions" selected="c.filters.state"></div>
+            </div>
+            <div class="col-lg-2 col-md-3">
+                <span>Type</span><br/>
+                <div wh-select options="c.typeOptions" selected="c.filters.singleType"></div>
+            </div>
+            <div class="col-lg-2 col-md-3">
+                <span>State</span><br/>
+                <div wh-select dropdown options="c.stateOptions" selected="c.filters.singleState"></div>
+            </div>
+            <div class="col-lg-2 col-md-3">
+                <span>State</span><br/>
+                <div wh-select expand options="c.stateOptions" selected="c.filters.singleState"></div>
+            </div>
+        </div>
+        <div class="row" style="padding-top:15px;">
+            <div class="col-xs-12">
+                <div class="pull-right">
+                    <button class="btn" ng-click="c.clearFilters()">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        Clear Filters
+                    </button>
+                    <button class="btn" ng-click="c.applyFilters()">Apply Filters</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>Filters selected above:</p>
+    <pre>{{ c.filters | json }}</pre>
+    <p>Applied filters</p>
+    <pre>{{ c.appliedFilters | json }}</pre>
+</div>

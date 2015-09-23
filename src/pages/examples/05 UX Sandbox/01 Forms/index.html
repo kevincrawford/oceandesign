@@ -1,0 +1,278 @@
+<style>
+    
+    .btn-continue   {
+        background-color: #679146;
+        border: medium none;
+        border-radius: 4px;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-family: "Proxima Nova";
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        line-height: 22px;
+        margin-bottom: 22px;
+        margin-right: 15px;
+        max-width: 100%;
+        min-height: 35px;
+        min-width: 130px;
+        padding: 5px 25px;
+        text-align: center;
+        text-decoration: none;
+        text-rendering: optimizelegibility;
+        text-transform: uppercase;
+    }
+    
+.btn-clear  {
+        background-color: #f0f0f0;
+        border-color: #d1d1d1;
+        border: 1px solid #d2d2d2;                    
+        border-radius: 4px;
+        color: #679146;
+        cursor: pointer;
+        display: inline-block;
+        font-family: "Proxima Nova";
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        line-height: 22px;
+        margin-top: 0px;
+        max-width: 100%;
+        min-height: 35px;
+        min-width: 130px;
+        padding: 5px 25px;
+        text-align: center;
+        text-decoration: none;
+        text-rendering: optimizelegibility;
+        text-transform: uppercase;
+    }
+    
+    
+    .col-sm-6 {
+        width: 50%;
+    }
+    
+    .col-lg-12 {
+        float: left;
+        max-width: 100%;
+    }
+    
+    .x-errorbox .errorbox{
+        position:relative;
+        display:inline-block;
+        margin:10px 20px;
+        opacity:1;
+    }
+    
+    .errorbox{
+        font-size: 12px;
+        line-height: 1.4;
+        max-width: 200px;    
+        margin-top: 2px;
+        padding: 2px 0;
+    }
+    
+    .errorbox-arrow{ 
+        border-bottom-color: rgb(179, 35, 23);
+        border-bottom-style: solid;
+        border-bottom-width: 5px;
+        border-left-color: rgba(0, 0, 0, 0);
+        border-left-style: solid;
+        border-left-width: 5px;
+        border-right-color: rgba(0, 0, 0, 0);
+        border-right-style: solid;
+        border-right-width: 5px;
+        border-top-color: rgba(0, 0, 0, 0);
+        border-top-style: solid;
+        border-top-width: 0px;
+        box-sizing: border-box;
+        color: rgb(179, 35, 23);
+        display: block;
+        font-size: 12px;
+        font-weight: normal;
+        height: 5px;
+        left: 30px;
+        line-height: 16.7999992370605px;
+        margin-left: -5px;
+        position: absolute;
+        top: 0px;
+        visibility: visible;
+        width: 10px;
+
+        border-bottom-color: #cc4a4a;
+        border-width: 0 5px 5px;
+        left: 50%;
+        margin-left: 5px;
+        top: 0;
+        border-style: solid;
+        height: 0;
+        position: relative;
+        width: 0;   
+        
+    }
+    
+    .errorbox-inner{
+        background-color: #cc4a4a;
+        border-radius: 3px;
+        color: #fff;
+        padding: 3px 8px;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+    }
+    
+    .has-error .form-control {
+        border-color: #cc4a4a;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    }
+    
+    .has-error .form-control:focus {
+        border-color: #cc4a4a;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 6px #ce8483;
+    }
+    
+    .has-error .input-group-addon {
+        background-color: #f2dede;
+        border-color: #cc4a4a;
+        color: #a94442;
+    }
+    
+    .has-error .form-control-feedback {
+        color: #a94442;
+    }
+    
+    .has-feedback label ~ .form-control-feedback {
+        top: 25px;
+    }
+    
+    .has-feedback label.sr-only ~ .form-control-feedback {
+        top: 0;
+    }
+    
+    input.verim[type="checkbox"] + .lbl:before, input.verim[type="radio"] + .lbl:before { 
+        border: 1px solid #c8c8c8;
+        border-radius: 100%;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        color: #679146;
+        content: " ";
+        cursor: pointer;
+        display: inline-block;
+        font-family: fontAwesome;
+        font-size: 12px;
+        font-weight: 400;
+        height: 17px;
+        line-height: 14px;
+        margin-right: 1px;
+        min-width: 17px;
+        position: relative;
+        text-align: center;
+        top: -1px;
+    }
+    
+    .lbl {
+        border-radius: 100%;
+        font-size: 12px;
+        font-weight: 100;
+        height: 17px;
+        line-height: 15px;
+        min-width: 17px;
+    }
+    
+    .line-height-1 {
+        line-height: 1 !important;
+    }
+    
+input.verim[type="checkbox"]:hover + .lbl:before, input.verim[type="radio"]:hover + .lbl:before, input.verim[type="checkbox"] + .lbl:hover:before, input.verim[type="radio"] + .lbl:hover:before {
+        border-color: #679146;
+    }
+    
+    input.verim[type="radio"]:checked + .lbl:before {
+        content: "";
+}
+    
+input.verim[type="checkbox"]:checked + .lbl:before, input.verim[type="radio"]:checked + .lbl:before {
+        background-color: #f2f2f2;
+        border-color: #679146;
+        display: inline-block;
+    }
+    
+</style>
+
+
+<h2>Validation in Web Forms</h2>
+<div>
+    <br>     
+    <form class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label">Requestor Name</label>
+            <div class="controls">
+                <input type="text" class="form-control" />
+                <div class="x-errorbox errorbox">
+                    <div class="errorbox-arrow"></div>
+                    <div class="errorbox-inner">Please enter your full name.</div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Email</label>
+                <div class="controls">
+                    <input type="email" class="form-control" />
+                    <div class="x-errorbox errorbox">
+                    <div class="errorbox-arrow"></div>
+                    <div class="errorbox-inner">Please provide a valid email.                         </div>
+                </div>
+            </div>
+            <div class="input-group control-group">
+                <label class="control-label">Phone Number</label>
+                <div class="controls">
+                    <input id="phone" type="tel" class="form-control" name="phone"  aria-required="true" aria-invalid="true" aria-describedby="phone-error">
+        <div class="x-errorbox errorbox">
+            <div class=""></div>
+            <div class=""></div>
+        </div>
+    </div>
+</div>
+        <br>
+<div>
+    <div class="control-group">
+    <label class="control-label">Label &nbsp;&nbsp;  (optional)</label>
+        <div class="controls">
+    <input type="text" class="form-control" />
+        </div>
+</br>
+    <label>
+        Select Request Reason
+    </label>
+<div>
+
+    <label class="line-height-1">
+        <input class="verim" type="radio" value="1" name="form-field-radio">
+        <span class="lbl">
+            New Driver
+        </span>
+    </label>
+
+</div>
+     
+<div>
+    <label class="line-height-1">
+        <input class="verim" type="radio" value="2" name="form-field-radio">
+        <span class="lbl">
+            Collision
+        </span>
+    </label>
+        <div class="x-errorbox errorbox">
+            <div class="errorbox-arrow"></div>
+            <div class="errorbox-inner">Please select reason.</div>
+        </div>
+</div>
+</br>
+<div>
+    <button class="btn-continue btn-primary" >
+    Continue
+    </button>
+    &nbsp;&nbsp;&nbsp;
+    <button class="btn-clear btn-default" >
+    Clear All
+    </button>
+</div>

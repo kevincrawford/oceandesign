@@ -1,0 +1,31 @@
+<div class="row" ng-controller="gridSidebarAlignmentController as c">
+    <div class="col-md-12">
+        <div class="btn-group">
+            <button type="button" class="btn btn-default"
+                    ng-repeat="config in c.configs"
+                    ng-class="{ 'btn-primary': c.currentConfiguration == config }"
+                    ng-click="c.currentConfiguration = config">{{config.name}}</button>
+        </div>
+    </div>
+    <div>
+        <div class="col-md-9">
+            <div wh-grid=""
+                 configuration="c.currentConfiguration"
+                 selected="c.selected"
+                 displayed="c.displayed"
+                 style="height: 300px"></div>
+        </div>
+        <div class="col-md-3">
+            <div ng-if="c.displayed" style="height: 300px; overflow: scroll">
+                <h4>{{ c.displayed.title }}</h4>
+                <p>Value: {{ c.displayed.value }}</p>
+                <p>Color: {{ c.displayed.color }}</p>
+                <pre>{{ c.displayed | json }}</pre>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <pre>Has selected: {{ !!c.selected }}</pre>
+            <pre>ID of selected: {{ (c.selected || {}).Id }}</pre>
+        </div>
+    </div>
+</div>

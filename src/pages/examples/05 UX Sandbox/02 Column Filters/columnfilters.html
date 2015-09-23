@@ -1,0 +1,174 @@
+<script>
+$(function(){
+    //Search
+	$(".filter-search").popover({
+        html: true,
+        template: '<div class="popover wh-popover-search" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>',
+        content: function() {
+            return $('.wh-cf-search-dom').html();
+        }
+    });
+
+
+    $(".filter-number").popover({
+        html : true, 
+        template: '<div class="popover wh-popover-number-range" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>',
+        content: function() {
+            return $('.wh-cf-number-range-dom').html();
+        }
+    });
+
+    $(".filter-date").popover({
+        html : true, 
+        template: '<div class="popover wh-popover-date-range" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>',
+        content: function() {
+            return $('.wh-cf-date-range-dom').html();
+        }
+    }).on('shown.bs.popover', function () {
+        $(".wh-field-date").inputmask();
+    });
+
+    $(".filter-checklist").popover({
+        html : true, 
+        template: '<div class="popover wh-popover-checklist" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>',
+        content: function() {
+            return $('.wh-cf-checklist-dom').html();
+        }
+    });
+
+    //$('.wh-field-date').inputmask("99 / 99 / 99",{ "placeholder": "MM / DD / YY", clearMaskOnLostFocus: false });
+
+    //$("input").inputmask();
+    //$(".wh-field-date").inputmask();
+
+});
+</script>
+
+
+<!--
+<div class="popover popover-medium"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>
+<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>
+-->
+
+
+
+
+<div class="wh-cf-container">
+    <button type="button" class="btn btn-default filter-search" data-container="body" data-toggle="popover" data-placement="bottom">Search Filter</button>
+    <button type="button" class="btn btn-default filter-number" data-container="body" data-toggle="popover" data-placement="bottom">Number Range Filter</button>
+    <button type="button" class="btn btn-default filter-date" data-container="body" data-toggle="popover" data-placement="bottom">Date Range Filter</button>
+    <button type="button" class="btn btn-default filter-checklist" data-container="body" data-toggle="popover" data-placement="bottom">Checklist Filter</button>
+</div>
+
+
+
+<!-- popover dom -->
+<div style="display: none">
+    <!-- search -->
+    <div class="wh-cf-search-dom">
+        <form class="wh-cf wh-cf-search" role="form"> 
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" placeholder="Search" />
+                <i class="form-control-feedback fa fa-search"></i><i class="form-control-feedback fa fa-search"></i>
+            </div>
+        </form>
+    </div>
+
+    <!-- number range -->
+    <div class="wh-cf-number-range-dom">
+        <div class="row wh-cf cf-number-range">
+            <div class="col-sm-12">
+                <label>Number Range</label>
+            </div>
+            <div class="form-group col-sm-6 trim-right">
+                <input type="number" class="form-control min-value mod" placeholder="Minimum" />
+            </div>
+            <div class="form-group col-sm-6 trim-left">
+                <input type="number" class="form-control max-value mod" placeholder="Maximum" />
+            </div>
+            <div class="col-sm-6 trim-right">
+                <button type="button col-sm-6" class="btn btn-primary">APPLY</button>
+            </div>
+            <div class="col-sm-6 trim-left">
+                <button type="button col-sm-6" class="btn btn-default">CANCEL</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- date range -->
+    <div class="wh-cf-date-range-dom">
+        <div class="row wh-cf wh-cf-date-range">
+            <div class="col-sm-6 trim-right">
+                <label>From</label>
+            </div>
+            <div class="col-sm-6 trim-left">
+                <label>To</label>
+            </div>
+            <div class="form-group col-sm-6 trim-right">
+                <div class="inner-addon right-addon">
+                    <i class="fa fa-calendar-o wh-green"></i>
+                    <input type="text" class="form-control wh-field-date min-value"
+                    data-inputmask="
+                        'mask': 'm / d / y',
+                        'placeholder': 'MM / DD / YYYY', 
+                        'clearMaskOnLostFocus': false
+                    " />
+                </div>
+            </div>
+            <div class="form-group col-sm-6 trim-left">
+                <div class="inner-addon right-addon">
+                    <i class="fa fa-calendar-o wh-green"></i>
+                    <input type="text" class="form-control wh-field-date min-value"
+                    data-inputmask="
+                        'mask': 'm / d / y',
+                        'placeholder': 'MM / DD / YYYY', 
+                        'clearMaskOnLostFocus': false
+                    " />
+                </div>
+            </div>
+            <div class="col-sm-6 trim-right">
+                <button type="button col-sm-6" class="btn btn-primary">APPLY</button>
+            </div>
+            <div class="col-sm-6 trim-left">
+                <button type="button col-sm-6" class="btn btn-default">CANCEL</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- checklist -->
+    <div class="wh-cf-checklist-dom">
+        <!-- start dom  -->
+        <div class="row wh-cf wh-cf-checklist">
+            <div class="col-sm-12 wh-checklist">
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="#"><i class="fa fa-square-o"></i>&nbsp;&nbsp;Option Title</a></li>
+                    <li class="list-group-item"><a href="#"><i class="fa fa-square-o"></i>&nbsp;&nbsp;Option Title</a></li>
+                    <li class="list-group-item"><a href="#"><i class="fa fa-check-square"></i>&nbsp;&nbsp;Option Title</a></li>
+                    <li class="list-group-item"><a href="#"><i class="fa fa-square-o"></i>&nbsp;&nbsp;Option Title</a></li>
+                    <li class="list-group-item"><a href="#"><i class="fa fa-square-o"></i>&nbsp;&nbsp;Option Title</a></li>
+                    <li class="list-group-item"><a href="#"><i class="fa fa-square-o"></i>&nbsp;&nbsp;Option Title</a></li>
+                    <li class="list-group-item"><a href="#"><i class="fa fa-square-o"></i>&nbsp;&nbsp;Option Title</a></li>
+                    <li class="list-group-item"><a href="#"><i class="fa fa-square-o"></i>&nbsp;&nbsp;Option Title</a></li>
+                    <li class="list-group-item"><a href="#"><i class="fa fa-check-square"></i>&nbsp;&nbsp;Option Title</a></li>
+                    <li class="list-group-item"><a href="#"><i class="fa fa-square-o"></i>&nbsp;&nbsp;Option Title</a></li>
+                    <li class="list-group-item"><a href="#"><i class="fa fa-square-o"></i>&nbsp;&nbsp;Option Title</a></li>
+                    <li class="list-group-item"><a href="#"><i class="fa fa-square-o"></i>&nbsp;&nbsp;Option Title</a></li>
+                    <li class="list-group-item"><a href="#"><i class="fa fa-square-o"></i>&nbsp;&nbsp;Option Title</a></li>
+                    <li class="list-group-item"><a href="#"><i class="fa fa-square-o"></i>&nbsp;&nbsp;Option Title</a></li>
+                    <li class="list-group-item"><a href="#"><i class="fa fa-square-o"></i>&nbsp;&nbsp;Option Title</a></li>
+                    <li class="list-group-item"><a href="#"><i class="fa fa-square-o"></i>&nbsp;&nbsp;Option Title</a></li>
+                    <li class="list-group-item"><a href="#"><i class="fa fa-square-o"></i>&nbsp;&nbsp;Option Title</a></li>
+                    <li class="list-group-item"><a href="#"><i class="fa fa-square-o"></i>&nbsp;&nbsp;Option Title</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-6 trim-right">
+                <button type="button col-sm-6" class="btn btn-primary">APPLY</button>
+            </div>
+            <div class="col-sm-6 trim-left">
+                <button type="button col-sm-6" class="btn btn-default">CANCEL</button>
+            </div>
+        </div>
+        <!-- end dom  -->
+    </div>
+
+</div>

@@ -1,0 +1,18 @@
+<button type="button" class="btn btn-primary" ng-click="uploadStatus.visible=true" ng-if="!uploadStatus.visible">{{ buttonText || 'Add a file' }}</button>
+<div ng-if="uploadStatus.visible">
+    <div class="wh-file-inputs">
+        <input type="file" nv-file-select uploader="uploader" class="wh-file-real" />
+        <div class="wh-file-fake">
+            <div class="input-group">
+                <input type="text" class="form-control wh-file-upload-path" placeholder="No File Selected" />
+                <a href="#" class="input-group-addon wh-file-uppload-trigger">Browse</a>
+            </div>
+        </div>
+    </div>
+    <p ng-if="maxFileSizeMB">The maximum file size is {{maxFileSizeMB | number : 0 }} MB.</p>
+    <div ng-transclude></div>
+    <div class="wh-file-upload-actions">
+        <button type="button" class="btn btn-primary" ng-click="doUpload()" ng-disabled="!uploader.getNotUploadedItems().length">Upload File</button>
+        <button type="button" class="btn btn-default" ng-click="cancelUpload()">Cancel</button>
+    </div>
+</div>

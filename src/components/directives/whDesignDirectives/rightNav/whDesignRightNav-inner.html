@@ -1,0 +1,4 @@
+<a href="#{{item.href}}">{{item.label}}</a>
+<ul ng-if="item.items.length">
+    <li ng-include="'components/directives/whDesignDirectives/rightNav/whDesignRightNav-inner.html'" ng-repeat="item in item.items" ng-class="{ activeSelf: item.activeSelf, activeParent: item.activeParent }"></li>
+</ul>

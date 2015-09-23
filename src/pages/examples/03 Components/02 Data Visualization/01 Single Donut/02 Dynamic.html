@@ -1,0 +1,7 @@
+<div ng-controller="donutController as c">
+    <h4>Includes click handler (for value and not-value) and dynamic tooltip</h4>
+    Donut text: <input ng-model="c.txt1" ng-init="c.txt1 = '32'"/><br/>
+    Donut subText: <input ng-model="c.txt2" ng-init="c.txt2 = 'something'"/><br/>
+    Donut value: <input type="number" ng-model="c.val1" ng-init="c.val1 = 0.54"/><br/>
+    <div wh-single-donut="" text="c.txt1" sub-text="c.txt2" value="c.val1" value-clicked="c.valueClicked()" not-value-clicked="c.notValueClicked()" tooltip-formatter="c.tooltipFormatter(point)"></div>
+</div>

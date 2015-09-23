@@ -1,0 +1,42 @@
+<h1>Grid and Recordview Use Cases</h1>
+<p>When grid is used to navigate to a record(s) that require further actions</p>
+<p>When all data fields don't fit in a grid without horizontal scrolling or reading the data becomes difficult</p>
+<p>When the grid column model represents a subset of the entire record model and details need to be exposed to support the desision process</p>
+<p>When records are selected to take an action on</p>
+
+
+
+
+
+<h1>Grid and Recordview alway present</h1>
+<p>User wants to navigate to and view multiple record details*</p>
+<ol>
+	<li>When UI can accomodate grid and record view</li>
+	<li>When required visible grid columns < 3</li>
+</ol>
+<p>*<i>Requires small screen solution</i></p>
+
+<h1>Grid and Recordview Popover</h1>
+<p>User needs to quickly see additional record details to support action decisions</p>
+<ol>
+	<li>When grid is primary navigation or scanning for records</li>
+	<li>When Recordview information can fit in a small container (240px X 240px or popover does not obscure more tha 25% of grid)</li>
+	<li>When required visible grid columns > 5</li>
+	<li>When multiple records will be selected</li>
+</ol>
+
+<h1>Grid and Recordview Flyout</h1>
+<p>User needs to focus on record details in a readable format</p>
+<p><i>Recordview is hidden until it is needed. When recordview is needed it opens into the grid leaving 1-3 columns available in view to support navigation</i></p>
+<ol>
+	<li>When recordview is too large for popover</li>
+	<li>When user needs navigate to and view multiple records details</li>
+	<li>When multiple records will be selected</li>
+</ol>
+
+<h1>Grid and Row Expansion</h1>
+<p>User needs to quickly see additional record details to support action decisions</p>
+<p><i>Last resort option</i></p>
+<ol>
+	<li>Only use when the format of data supports the existing grid column layout (eg. Additional information matches grid column model, or information provides additional information for a span of columns</li>
+</ol>
